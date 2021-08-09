@@ -56,6 +56,12 @@ jogadores.appendChild(jogador_2);
         container.addEventListener("click", function(event){
             if (clique === true){
             clique = false;
+            //volta o tamanho inical do disco jogador1;
+            jogador_1.style.width = "80px";
+            jogador_1.style.height = "80px";
+            //Volta o tamanho incial do disco jogador2;
+            jogador_2.style.width = "80px";
+            jogador_2.style.height = "80px";  
             console.log(clique);
             }
             
