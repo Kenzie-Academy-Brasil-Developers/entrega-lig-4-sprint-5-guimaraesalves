@@ -1,0 +1,19 @@
+.jogadores {
+  display: flex;
+  margin: 20px;
+}
+
+.jogadores div {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+}
+
+.jogador_1 {
+  background-color: black;
+  border-radius: 50%;
+}
+.jogador_2 {
+  background-color: red;
+  border-radius: 50%;
+}
