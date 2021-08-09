@@ -30,35 +30,63 @@ jogadores.appendChild(jogador_2);
 
 //Inicializando eventos Selecionando discos
 
+    // variável de controle do clique.
+    let clique = false;
+    console.log(clique);  
+    
+    
+        // clique false libera o jogador 1
+        jogador_1.addEventListener("click", function(event){
+            if(clique === false){
+            clique = true; //volta para true bloqueando o clique do jogador 2;
+            jogador_1.style.width = "40px";
+            jogador_1.style.height = "40px";
+            console.log(clique);  
+            }
+            });       
+           
+        jogador_1.addEventListener("mouseover", function(event){
+                jogador_1.style.backgroundColor = "#3b3b2f";
+            });
+        jogador_1.addEventListener("mouseout", function(event){
+                jogador_1.style.backgroundColor = "#000";
+            });
+
+        // Clique true libera o clique no tabuleiro e volta o clique para false;    
+        container.addEventListener("click", function(event){
+            if (clique === true){
+            clique = false;
+            console.log(clique);
+            }
+            
+        });
     
 
-    jogador_1.addEventListener("click", function(event){
-    jogador_1.style.width = "40px";
-    jogador_1.style.height = "40px";
-    });       
-   
-    jogador_1.addEventListener("mouseover", function(event){
-        jogador_1.style.backgroundColor = "#3b3b2f";
-    });
-    jogador_1.addEventListener("mouseout", function(event){
-        jogador_1.style.backgroundColor = "#000";
-    });
+        // clique false libera o jogador 2
+        jogador_2.addEventListener("click", function(event){
+        if(clique === false){
+            clique = true; //volta para true bloqueando o clique do jogador 1;
+            jogador_2.style.width = "40px";
+            jogador_2.style.height = "40px";  
+            console.log(clique);
+        }            
+        });  
+
+        jogador_2.addEventListener("mouseover", function(event){
+            jogador_2.style.backgroundColor = "#e64f47";
+        });
+        jogador_2.addEventListener("mouseout", function(event){
+            jogador_2.style.backgroundColor = "#eb3434";
+        });
+
+    
+    
 
 
 
     
-    jogador_2.addEventListener("click", function(event){
-    jogador_2.style.width = "40px";
-    jogador_2.style.height = "40px";            
-    });      
    
-    jogador_2.addEventListener("mouseover", function(event){
-        jogador_2.style.backgroundColor = "#e64f47";
-    });
-    jogador_2.addEventListener("mouseout", function(event){
-        jogador_2.style.backgroundColor = "red";
-    });
-
+    
 
 
 
