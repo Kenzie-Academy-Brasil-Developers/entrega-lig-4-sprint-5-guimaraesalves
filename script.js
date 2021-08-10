@@ -18,73 +18,29 @@ tabuleiro();
 
 const jogadores = document.querySelector(".jogadores");
 
-const jogador_1 = document.createElement("div");
-jogador_1.classList.add("jogador_1");
-jogadores.appendChild(jogador_1);
 
-const jogador_2 = document.createElement("div");
-jogador_2.classList.add("jogador_2");
-jogadores.appendChild(jogador_2);
+
+const jogador = document.createElement("div");
+jogador.classList.add("jogador");
+jogadores.appendChild(jogador);
 
 
 
 //Inicializando eventos Selecionando discos
 
     // variável de controle do clique.
-    let clique = false;
-    console.log(clique);  
+    let jogadorAtual = 1;    
     
-    
-        // clique false libera o jogador 1
-        jogador_1.addEventListener("click", function(event){
-            if(clique === false){
-            clique = true; //volta para true bloqueando o clique do jogador 2;
-            jogador_1.style.width = "40px";
-            jogador_1.style.height = "40px";
-            console.log(clique);  
-            }
-            });       
-           
-        jogador_1.addEventListener("mouseover", function(event){
-                jogador_1.style.backgroundColor = "#3b3b2f";
-            });
-        jogador_1.addEventListener("mouseout", function(event){
-                jogador_1.style.backgroundColor = "#000";
-            });
-
-        // Clique true libera o clique no tabuleiro e volta o clique para false;    
+        // alternância de jogadores
         container.addEventListener("click", function(event){
-            if (clique === true){
-            clique = false;
-            //volta o tamanho inical do disco jogador1;
-            jogador_1.style.width = "80px";
-            jogador_1.style.height = "80px";
-            //Volta o tamanho incial do disco jogador2;
-            jogador_2.style.width = "80px";
-            jogador_2.style.height = "80px";  
-            console.log(clique);
+            if(jogadorAtual === 1){
+            jogador.style.backgroundColor = "red";
+            jogadorAtual = 2; //volta para true bloqueando o clique do jogador 2;
+            } else {
+                jogador.style.backgroundColor = "black";
+                jogadorAtual = 1;
             }
-            
-        });
-    
-
-        // clique false libera o jogador 2
-        jogador_2.addEventListener("click", function(event){
-        if(clique === false){
-            clique = true; //volta para true bloqueando o clique do jogador 1;
-            jogador_2.style.width = "40px";
-            jogador_2.style.height = "40px";  
-            console.log(clique);
-        }            
-        });  
-
-        jogador_2.addEventListener("mouseover", function(event){
-            jogador_2.style.backgroundColor = "#e64f47";
-        });
-        jogador_2.addEventListener("mouseout", function(event){
-            jogador_2.style.backgroundColor = "#eb3434";
-        });
-
+            });
     
     
 
