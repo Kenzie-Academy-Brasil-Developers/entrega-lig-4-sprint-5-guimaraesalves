@@ -61,7 +61,7 @@ const vitoriaHorizontal = (disco) => {
   for (let i = 0; i < arrTabuleiro.length; i++) {
     for (let j = 0; j < arrTabuleiro[0].length - 3; j++) {
       if (condicaoVitoria(i, j, disco)) {
-        console.log("test_0");
+        console.log("Vitoria Horizontal");
       }
     }
   }
@@ -76,7 +76,7 @@ const vitoriaVertical = (disco) => {
   for (let i = 0; i < arrTabuleiro.length - 3; i++) {
     for (let j = 0; j < arrTabuleiro[0].length; j++) {
       if (condicaoVitoria(i, j, disco)) {
-        console.log("test_1");
+        console.log("Vitoria Vertical");
       }
     }
   }
@@ -91,7 +91,7 @@ const vitoriaDiagonal = (disco) => {
         arrTabuleiro[i + 2][j + 2] === arrTabuleiro[i + 3][j + 3] &&
         arrTabuleiro[i][j] === disco
       ) {
-        console.log("test_2");
+        console.log("Vitoria Diagonal");
       }
     }
   }
@@ -106,7 +106,7 @@ const vitoriaDiagonal2 = (disco) => {
         arrTabuleiro[i - 2][j + 2] === arrTabuleiro[i - 3][j + 3] &&
         arrTabuleiro[i][j] === disco
       ) {
-        console.log("test_3");
+        console.log("Vitoria Diagonal");
       }
     }
   }
