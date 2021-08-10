@@ -23,6 +23,10 @@ tabuleiro();
 //          Jogadores
 //================================
 
+/**
+ * @param {String} strJogador 
+ */
+
 const criarJogador = (strJogador) => {
   const jogadores = document.querySelector(".jogadores");
   let jogador = document.createElement("div");
