@@ -2,10 +2,6 @@
 //          Tabuleiro
 //================================
 
-const tabuleiro = () => {
-  criaLinhas()
-};
-
 const criaLinhas = () => {
   const container = document.querySelector(".container");
   for (let i = 0; i < 7; i++) {
@@ -23,6 +19,10 @@ const criaColunas = (linha) => {
     linha.appendChild(coluna);
   }
 }
+
+const tabuleiro = () => {
+  criaLinhas()
+};
 
 tabuleiro();
 
