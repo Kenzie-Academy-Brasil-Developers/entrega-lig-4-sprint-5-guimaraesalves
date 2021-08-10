@@ -26,7 +26,7 @@ jogador_2.classList.add("jogador_2");
 jogadores.appendChild(jogador_2);
 
 let arrTabuleiro = [
-  ["P", "P", "P", "P", "V", "V", "V"],
+  ["V", "P", "P", "P", "V", "V", "V"],
   ["P", "V", "V", "V", "V", "V", "V"],
   ["P", "V", "V", "V", "P", "V", "V"],
   ["V", "V", "V", "V", "P", "V", "V"],
