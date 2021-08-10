@@ -1,5 +1,9 @@
 const container = document.querySelector(".container");
 
+//================================
+//          Tabuleiro
+//================================
+
 const tabuleiro = () => {
   for (let i = 0; i < 7; i++) {
     let linha = document.createElement("div");
@@ -15,12 +19,38 @@ const tabuleiro = () => {
 
 tabuleiro();
 
+//================================
+//          Jogadores
+//================================
+
 const jogadores = document.querySelector(".jogadores");
 
+const criarJogador = (jogador, strJogador) => {
+  jogador.classList.add(strJogador);
+  jogadores.appendChild(jogador);
+}
+
 const jogador_1 = document.createElement("div");
-jogador_1.classList.add("jogador_1");
-jogadores.appendChild(jogador_1);
+// jogador_1.classList.add("jogador_1");
+// jogadores.appendChild(jogador_1);
 
 const jogador_2 = document.createElement("div");
-jogador_2.classList.add("jogador_2");
-jogadores.appendChild(jogador_2);
+// jogador_2.classList.add("jogador_2");
+// jogadores.appendChild(jogador_2);
+
+criarJogador(jogador_1, 'jogador_1')
+criarJogador(jogador_2, 'jogador_2')
+
+//================================
+//          Validação
+//================================
+
+let arrTabuleiro = [
+  ["V", "V", "V", "V", "V", "V", "V"],
+  ["V", "V", "V", "R", "R", "R", "R"],
+  ["V", "V", "V", "V", "V", "V", "B"],
+  ["V", "V", "V", "V", "V", "V", "B"],
+  ["V", "V", "V", "V", "V", "V", "B"],
+  ["V", "V", "V", "V", "V", "V", "B"]
+]
+
