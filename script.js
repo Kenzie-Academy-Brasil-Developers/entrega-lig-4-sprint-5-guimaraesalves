@@ -23,9 +23,9 @@ tabuleiro();
 //          Jogadores
 //================================
 
-const jogadores = document.querySelector(".jogadores");
 
 const criarJogador = (strJogador) => {
+  const jogadores = document.querySelector(".jogadores");
   let jogador = document.createElement("div");
   jogador.classList.add(strJogador);
   jogadores.appendChild(jogador);
