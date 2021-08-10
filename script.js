@@ -34,9 +34,14 @@ let arrTabuleiro = [
   ["V", "V", "V", "V", "P", "V", "V"],
 ];
 
-const vitoria = () => {
-  vitoriaHorizontal("P")
-  vitoriaVertical("P")
+/**
+ * 
+ * @param {String} discoVencedor 
+ */
+
+const vitoria = (discoVencedor) => {
+  vitoriaHorizontal(discoVencedor)
+  vitoriaVertical(discoVencedor)
 };
 
 /**
@@ -79,4 +84,4 @@ const vitoriaVertical = (disco) => {
   }
 }
 
-vitoria();
+vitoria("P");
