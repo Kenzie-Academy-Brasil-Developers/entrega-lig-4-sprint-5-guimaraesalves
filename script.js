@@ -24,8 +24,8 @@ jogadores.appendChild(jogador);
 //Inicializando eventos Selecionando discos
 
 // variável de controle do clique.
-let player1 = "R";
-let player2 = "B";
+let player1 = "B";
+let player2 = "R";
 let jogadorAtual = player1;
 
 // alternância de jogadores
