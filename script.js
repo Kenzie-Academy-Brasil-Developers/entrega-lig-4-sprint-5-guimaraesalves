@@ -29,8 +29,8 @@ jogadores.appendChild(jogador);
 //Inicializando eventos Selecionando discos
 
 // variável de controle do clique.
-let player1 = "R";
-let player2 = "B";
+let player1 = "B";
+let player2 = "R";
 let jogadorAtual = player1;
 
 // alternância de jogadores
@@ -59,8 +59,7 @@ const colunas = document.querySelectorAll(".linha")
 
 for (let i = colunas.length-1; i >= 0 ; i--) {
   colunas[i].addEventListener("click", function(evt) {
-    let find = arrTabuleiro.find(Element => Element === "V")
-    console.log(find);
-    let colunaSelecionada = evt.currentTarget;    
+    let indice = arrTabuleiro[i].indexOf("V");
+    arrTabuleiro[i][indice] = jogadorAtual;
   })
 }
