@@ -1,10 +1,10 @@
-const container = document.querySelector(".container");
 
 //================================
 //          Tabuleiro
 //================================
 
 const tabuleiro = () => {
+  const container = document.querySelector(".container");
   for (let i = 0; i < 7; i++) {
     let linha = document.createElement("div");
     linha.classList.add("linha", `linha_${i}`);
