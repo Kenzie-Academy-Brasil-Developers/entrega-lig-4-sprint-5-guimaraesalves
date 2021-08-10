@@ -45,7 +45,7 @@ const vitoria = (discoVencedor) => {
 };
 
 /**
- * 
+ * Função para checar condição
  * @param {Number} numUm 
  * @param {Number} numDois 
  * @param {String} param 
