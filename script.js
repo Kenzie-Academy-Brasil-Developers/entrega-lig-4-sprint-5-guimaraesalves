@@ -24,3 +24,12 @@ jogadores.appendChild(jogador_1);
 const jogador_2 = document.createElement("div");
 jogador_2.classList.add("jogador_2");
 jogadores.appendChild(jogador_2);
+
+function criaCardVitoria(jogador) {
+  const cardVitoria = document.createElement("div");
+  cardVitoria.classList.add("cardVitoria")
+  cardVitoria.innerText = jogador
+  document.body.appendChild(cardVitoria)
+}
+
+criaCardVitoria("Palmeiras tem Mundial")
