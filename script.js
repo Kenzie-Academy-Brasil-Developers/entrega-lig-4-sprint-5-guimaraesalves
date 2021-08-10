@@ -35,7 +35,7 @@ let arrTabuleiro = [
 ];
 
 /**
- * 
+ * Função para checar a vitória
  * @param {String} discoVencedor 
  */
 
@@ -45,7 +45,7 @@ const vitoria = (discoVencedor) => {
 };
 
 /**
- * 
+ * Função para checar a vitória na horizontal
  * @param {String} disco 
  */
 
@@ -65,7 +65,7 @@ const vitoriaHorizontal = (disco) => {
 }
 
 /**
- *
+ * Função para checar a vitória na vertical
  * @param {String} disco
  */
 
