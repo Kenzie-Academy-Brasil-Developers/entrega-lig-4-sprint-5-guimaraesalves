@@ -34,23 +34,6 @@ let arrTabuleiro = [
   ["V", "V", "V", "P", "P", "V", "P"],
 ];
 
-const vitoria = () => {
-  vitoriaHorizontal("P");
-  vitoriaVertical("P");
-};
-
-/**
- *
- * @param {String} disco
-/**
- * Função para checar a vitória
- * @param {String} discoVencedor 
- */
-
-const vitoria = (discoVencedor) => {
-  vitoriaHorizontal(discoVencedor);
-  vitoriaVertical(discoVencedor);
-};
 
 /**
  * Função para checar condição
@@ -99,8 +82,6 @@ const vitoriaVertical = (disco) => {
   }
 };
 
-vitoria();
-
 const vitoriaDiagonal = (disco) => {
   for (let i = 0; i < arrTabuleiro.length - 3; i++) {
     for (let j = 0; j < arrTabuleiro[0].length; j++) {
@@ -115,8 +96,6 @@ const vitoriaDiagonal = (disco) => {
     }
   }
 };
-
-vitoriaDiagonal("P");
 
 const vitoriaDiagonal2 = (disco) => {
   for (let i = 5; i > 2; i--) {
@@ -133,4 +112,16 @@ const vitoriaDiagonal2 = (disco) => {
   }
 };
 
-vitoriaDiagonal2("P");
+/**
+ * Função para checar a vitória
+ * @param {String} discoVencedor 
+ */
+
+const vitoria = (discoVencedor) => {
+  vitoriaHorizontal(discoVencedor);
+  vitoriaVertical(discoVencedor);
+  vitoriaDiagonal(discoVencedor);
+  vitoriaDiagonal2(discoVencedor);
+};
+
+vitoria("P")
