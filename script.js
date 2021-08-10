@@ -45,6 +45,21 @@ const vitoria = (discoVencedor) => {
 };
 
 /**
+ * 
+ * @param {Number} numUm 
+ * @param {Number} numDois 
+ * @param {String} param 
+ * @returns 
+ */
+
+const condicaoVitoria = (numUm, numDois, param) => {
+  return arrTabuleiro[numUm][numDois] === arrTabuleiro[numUm][numDois + 1] &&
+    arrTabuleiro[numUm][numDois + 1] === arrTabuleiro[numUm][numDois + 2] &&
+    arrTabuleiro[numUm][numDois + 2] === arrTabuleiro[numUm][numDois + 3] &&
+    arrTabuleiro[numUm][numDois] === param
+}
+
+/**
  * Função para checar a vitória na horizontal
  * @param {String} disco 
  */
@@ -52,12 +67,7 @@ const vitoria = (discoVencedor) => {
 const vitoriaHorizontal = (disco) => {
   for (let i = 0; i < arrTabuleiro.length; i++) {
     for (let j = 0; j < arrTabuleiro[0].length - 3; j++) {
-      if (
-        arrTabuleiro[i][j] === arrTabuleiro[i][j + 1] &&
-        arrTabuleiro[i][j + 1] === arrTabuleiro[i][j + 2] &&
-        arrTabuleiro[i][j + 2] === arrTabuleiro[i][j + 3] &&
-        arrTabuleiro[i][j] === disco
-      ) {
+      if (condicaoVitoria(i, j, disco)) {
         console.log("test_0");
       }
     }
@@ -72,12 +82,7 @@ const vitoriaHorizontal = (disco) => {
 const vitoriaVertical = (disco) => {
   for (let i = 0; i < arrTabuleiro.length - 3; i++) {
     for (let j = 0; j < arrTabuleiro[0].length; j++) {
-      if (
-        arrTabuleiro[i][j] === arrTabuleiro[i + 1][j] &&
-        arrTabuleiro[i + 1][j] === arrTabuleiro[i + 2][j] &&
-        arrTabuleiro[i + 2][j] === arrTabuleiro[i + 3][j] &&
-        arrTabuleiro[i][j] === disco
-      ) {
+      if (condicaoVitoria(i, j, disco)) {
         console.log("test_1");
       }
     }
