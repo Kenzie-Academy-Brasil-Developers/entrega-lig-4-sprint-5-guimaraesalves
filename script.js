@@ -24,14 +24,13 @@ tabuleiro();
 //================================
 
 const jogadores = document.querySelector(".jogadores");
+const jogador_1 = document.createElement("div");
+const jogador_2 = document.createElement("div");
 
 const criarJogador = (jogador, strJogador) => {
   jogador.classList.add(strJogador);
   jogadores.appendChild(jogador);
 }
-
-const jogador_1 = document.createElement("div");
-const jogador_2 = document.createElement("div");
 
 criarJogador(jogador_1, 'jogador_1')
 criarJogador(jogador_2, 'jogador_2')
