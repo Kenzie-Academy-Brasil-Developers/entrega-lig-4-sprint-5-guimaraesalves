@@ -28,20 +28,20 @@ jogadores.appendChild(jogador_2);
 let arrTabuleiro = [
   ["V", "P", "P", "P", "V", "V", "V"],
   ["P", "V", "V", "V", "V", "V", "V"],
-  ["P", "V", "V", "V", "P", "V", "V"],
-  ["V", "V", "V", "V", "P", "V", "V"],
+  ["P", "V", "V", "P", "P", "P", "P"],
+  ["V", "V", "V", "V", "P", "P", "V"],
   ["V", "V", "V", "P", "P", "P", "V"],
-  ["V", "V", "V", "V", "P", "V", "V"],
+  ["V", "V", "V", "P", "P", "V", "P"],
 ];
 
 const vitoria = () => {
-  vitoriaHorizontal("P")
-  vitoriaVertical("P")
+  vitoriaHorizontal("P");
+  vitoriaVertical("P");
 };
 
 /**
- * 
- * @param {String} disco 
+ *
+ * @param {String} disco
  */
 
 const vitoriaHorizontal = (disco) => {
@@ -57,7 +57,7 @@ const vitoriaHorizontal = (disco) => {
       }
     }
   }
-}
+};
 
 /**
  *
@@ -77,6 +77,40 @@ const vitoriaVertical = (disco) => {
       }
     }
   }
-}
+};
 
 vitoria();
+
+const vitoriaDiagonal = (disco) => {
+  for (let i = 0; i < arrTabuleiro.length - 3; i++) {
+    for (let j = 0; j < arrTabuleiro[0].length; j++) {
+      if (
+        arrTabuleiro[i][j] === arrTabuleiro[i + 1][j + 1] &&
+        arrTabuleiro[i + 1][j + 1] === arrTabuleiro[i + 2][j + 2] &&
+        arrTabuleiro[i + 2][j + 2] === arrTabuleiro[i + 3][j + 3] &&
+        arrTabuleiro[i][j] === disco
+      ) {
+        console.log("test_2");
+      }
+    }
+  }
+};
+
+vitoriaDiagonal("P");
+
+const vitoriaDiagonal2 = (disco) => {
+  for (let i = 5; i > 2; i--) {
+    for (let j = 0; j < arrTabuleiro[0].length; j++) {
+      if (
+        arrTabuleiro[i][j] === arrTabuleiro[i - 1][j + 1] &&
+        arrTabuleiro[i - 1][j + 1] === arrTabuleiro[i - 2][j + 2] &&
+        arrTabuleiro[i - 2][j + 2] === arrTabuleiro[i - 3][j + 3] &&
+        arrTabuleiro[i][j] === disco
+      ) {
+        console.log("test_3");
+      }
+    }
+  }
+};
+
+vitoriaDiagonal2("P");
