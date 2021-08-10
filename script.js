@@ -28,29 +28,39 @@ jogadores.appendChild(jogador);
 
 //Inicializando eventos Selecionando discos
 
-    // variável de controle do clique.
-    let jogadorAtual = 1;    
-    
-        // alternância de jogadores
-        container.addEventListener("click", function(event){
-            if(jogadorAtual === 1){
-            jogador.style.backgroundColor = "red";
-            jogadorAtual = 2; //volta para true bloqueando o clique do jogador 2;
-            } else {
-                jogador.style.backgroundColor = "black";
-                jogadorAtual = 1;
-            }
-            });
-    
-    
+// variável de controle do clique.
+let player1 = "R";
+let player2 = "B";
+let jogadorAtual = player1;
+
+// alternância de jogadores
+container.addEventListener("click", function (event) {
+  if (jogadorAtual === player1) {
+    jogador.style.backgroundColor = "red";
+    jogadorAtual = player2; //volta para true bloqueando o clique do jogador 2;
+  } else {
+    jogador.style.backgroundColor = "black";
+    jogadorAtual = player1;
+  }
+});
+
+let arrTabuleiro = [
+  ["V", "V", "V", "V", "V", "V"],
+  ["V", "V", "V", "V", "V", "V"],
+  ["V", "V", "V", "V", "V", "V"],
+  ["V", "V", "V", "V", "V", "V"],
+  ["V", "V", "V", "V", "V", "V"],
+  ["V", "V", "V", "V", "V", "V"],
+  ["V", "V", "V", "V", "V", "V"],
+];
 
 
+const colunas = document.querySelectorAll(".linha")
 
-    
-   
-    
-
-
-
-
-
+for (let i = colunas.length-1; i >= 0 ; i--) {
+  colunas[i].addEventListener("click", function(evt) {
+    let find = arrTabuleiro.find(Element => Element === "V")
+    console.log(find);
+    let colunaSelecionada = evt.currentTarget;    
+  })
+}
