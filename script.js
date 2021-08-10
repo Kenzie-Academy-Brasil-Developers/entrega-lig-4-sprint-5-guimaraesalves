@@ -33,7 +33,13 @@ let arrTabuleiro = [
   ["V", "V", "V", "P", "P", "P", "V"],
   ["V", "V", "V", "V", "P", "V", "V"],
 ];
+
 const vitoria = () => {
+  vitoriaHorizontal()
+  vitoriaVertical()
+};
+
+const vitoriaHorizontal = () => {
   for (let i = 0; i < arrTabuleiro.length; i++) {
     for (let j = 0; j < arrTabuleiro[0].length - 3; j++) {
       if (
@@ -46,6 +52,9 @@ const vitoria = () => {
       }
     }
   }
+}
+
+const vitoriaVertical = () => {
   for (let i = 0; i < arrTabuleiro.length - 3; i++) {
     for (let j = 0; j < arrTabuleiro[0].length; j++) {
       if (
@@ -58,6 +67,6 @@ const vitoria = () => {
       }
     }
   }
-};
+}
 
 vitoria();
