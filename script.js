@@ -7,6 +7,7 @@ function criaCardVitoria(jogador) {
   criaTrofeu(cardVitoria)
   criaVencedor(cardVitoria, jogador)
   criaFogosArtificos(cardVitoria)
+  fogosArtificios()
 }
 
 function criarTitulo(cardVitoria) {
@@ -35,5 +36,43 @@ function criaFogosArtificos(cardVitoria) {
   cardVitoria.appendChild(fogosArtificos)
 }
 
+function fogosArtificios() {
+  const fogos = document.querySelector('.fogos-artificios')
+
+  console.log(fogos)
+  const fireworks = new Fireworks(fogos, {
+    rocketsPoint: 50,
+    hue: { min: 0, max: 360 },
+    delay: { min: 15, max: 30 },
+    speed: 2,
+    acceleration: 1.05,
+    friction: 0.95,
+    gravity: 1.5,
+    particles: 50,
+    trace: 3,
+    explosion: 5,
+    autoresize: true,
+    brightness: {
+      min: 50,
+      max: 80,
+      decay: { min: 0.015, max: 0.03 }
+    },
+    mouse: {
+      click: false,
+      move: false,
+      max: 3
+    },
+    boundaries: {
+      x: 50,
+      y: 50,
+      width: fogos.clientWidth,
+      height: fogos.clientHeight
+    },
+  });
+
+  fireworks.setSize({ height: 500, width: 450 })
+
+  fireworks.start();
+}
 
 criaCardVitoria("Palmeiras tem Mundial")
