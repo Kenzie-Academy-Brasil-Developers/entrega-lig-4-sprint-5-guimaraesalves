@@ -21,6 +21,7 @@ body {
   background-size: cover;
   min-width: 360px;
   background-position: bottom;
+  background-repeat: no-repeat;
 }
 
 .bloco {
@@ -29,6 +30,7 @@ body {
   border-radius: 50%;
   margin: 1px;
   background-color: rgba(255, 255, 255, 0.514);
+  background-size: cover;
 }
 
 .linha {
@@ -46,7 +48,7 @@ body {
   border: 2px solid #fff;
   background-size: 100% 100%;
   background-position: center;
-  border-radius: 15px;
+  border-radius: 25px;
   box-shadow: 10px 10px 43px 0px rgba(255, 255, 255, 0.75);
 }
 
@@ -72,11 +74,14 @@ body {
 }
 
 .chutar {
-  animation: mover 1s ease-in-out;
+  animation: mover 1s linear;
 }
 
-.bloco {
+.peca {
+  width: 100%;
+  height: 100%;
   background-size: cover;
+  animation: maior 2s ease-in-out;
 }
 
 .cardVitoria {
@@ -102,7 +107,7 @@ body {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   position: absolute;
-  top: 12%;
+  top: 11%;
   display: none;
   flex-direction: column;
 }
@@ -135,7 +140,12 @@ body {
     opacity: 0;
   }
   50% {
-    opacity: 0.5;
+    transform: translateY(-200px);
+    opacity: 0.3;
+  }
+  75% {
+    transform: translateY(-100px);
+    opacity: 0.6;
   }
   100% {
     transform: translateY(0px);
@@ -143,17 +153,17 @@ body {
   }
 }
 
-/* @keyframes maior {
+@keyframes maior {
   0% {
     transform: scale(0.1);
   }
   50% {
-    transform: scale(1.5);
+    transform: scale(1.7);
   }
   100% {
     transform: scale(1);
   }
-} */
+}
 
 @media (min-width: 800px) {
   .bloco {

@@ -62,12 +62,19 @@ for (let i = colunas.length - 1; i >= 0; i--) {
     //colocar a cor do disco no local do tabuleiro
     let estilo = `.linha_${[i]} > .bloco_${[indice]}`;
     let cor = document.querySelector(estilo);
+
     if (cor !== null) {
       if (jogadorAtual === "R") {
-        cor.style.backgroundImage = "url('img/escudo-fluminense.png')";
+        const peca = document.createElement("div");
+        peca.classList.add("peca");
+        cor.appendChild(peca);
+        peca.style.backgroundImage = "url('img/escudo-fluminense.png')";
         alternaciaDeCor();
       } else {
-        cor.style.backgroundImage = "url('img/escudo-flamengo.png')";
+        const peca = document.createElement("div");
+        peca.classList.add("peca");
+        cor.appendChild(peca);
+        peca.style.backgroundImage = "url('img/escudo-flamengo.png')";
         alternaciaDeCor();
       }
     }
@@ -195,9 +202,9 @@ btn.addEventListener("click", function () {
 container.addEventListener("click", function () {
   const jogador = document.querySelector(".jogador");
   jogador.classList.add("chutar");
-  setTimeout(function run() {
+  setTimeout(function queda() {
     jogador.classList.remove("chutar");
-  }, 700);
+  }, 2000);
 });
 
 function cronometro(duration, display) {
@@ -210,14 +217,14 @@ function cronometro(duration, display) {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
     display.textContent = minutes + ":" + seconds;
-    if (++timer < 0) {
+    if (--timer < 0) {
       timer = duration;
     }
   }, 1000);
 }
 
 window.onload = function () {
-  let duration = 0;
+  let duration = 300;
   display = document.querySelector(".cronometro");
   cronometro(duration, display);
 };
