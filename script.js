@@ -30,17 +30,16 @@ let jogadorAtual = player1;
 
 // alternância de jogadores
 function alternaciaDeCor() {
-  
-container.addEventListener("click", function (event) {
-  console.log("container");
+  // container.addEventListener("click", function (event) {
+  //   console.log("container");
   if (jogadorAtual === player1) {
-    jogador.style.backgroundColor = "black";
+    jogador.style.backgroundImage = "url('img/escudo-flamengo.png')";
     jogadorAtual = player2; //volta para true bloqueando o clique do jogador 2;
   } else {
-    jogador.style.backgroundColor = "red";
+    jogador.style.backgroundImage = "url('img/escudo-fluminense.png')";
     jogadorAtual = player1;
   }
-});
+  // });
 }
 
 let arrTabuleiro = [
@@ -65,19 +64,16 @@ for (let i = colunas.length - 1; i >= 0; i--) {
     let cor = document.querySelector(estilo);
     if (cor !== null) {
       if (jogadorAtual === "R") {
-        cor.style.backgroundColor = "red";
+        cor.style.backgroundImage = "url('img/escudo-fluminense.png')";
         alternaciaDeCor();
       } else {
-        cor.style.backgroundColor = "black";
+        cor.style.backgroundImage = "url('img/escudo-flamengo.png')";
         alternaciaDeCor();
       }
     } else {
-
     }
   });
 }
-
-
 
 /**
  * Função para checar condição
@@ -167,7 +163,7 @@ const vitoriaDiagonal2 = (disco) => {
 
 /**
  * Função para checar a vitória
- * @param {String} discoVencedor 
+ * @param {String} discoVencedor
  */
 
 const vitoria = (discoVencedor) => {
@@ -177,13 +173,22 @@ const vitoria = (discoVencedor) => {
   vitoriaDiagonal2(discoVencedor);
 };
 
-
-
 function criaCardVitoria(jogador) {
   const cardVitoria = document.createElement("div");
-  cardVitoria.classList.add("cardVitoria")
-  cardVitoria.innerText = jogador
-  document.body.appendChild(cardVitoria)
+  cardVitoria.classList.add("cardVitoria");
+  cardVitoria.innerText = jogador;
+  document.body.appendChild(cardVitoria);
 }
 
 // criaCardVitoria("Palmeiras tem Mundial")
+
+const btn = document.querySelector(".btn");
+
+btn.addEventListener("click", function () {
+  const glass = document.querySelector(".glass");
+  if (glass.style.display === "none") {
+    glass.style.display = "flex";
+  } else {
+    glass.style.display = "none";
+  }
+});
