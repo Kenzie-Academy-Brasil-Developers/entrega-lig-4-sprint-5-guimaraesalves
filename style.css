@@ -48,8 +48,6 @@ body {
   background-position: center;
   border-radius: 15px;
   box-shadow: 10px 10px 43px 0px rgba(255, 255, 255, 0.75);
-  -webkit-box-shadow: 10px 10px 43px 0px rgba(255, 255, 255, 0.75);
-  -moz-box-shadow: 10px 10px 43px 0px rgba(255, 255, 255, 0.75);
 }
 
 .jogadores {
@@ -65,6 +63,10 @@ body {
 .jogador {
   background-image: url(img/bola.png);
   background-size: cover;
+}
+
+.chutar {
+  animation: mover 1s ease-in-out;
 }
 
 .bloco {
@@ -91,7 +93,6 @@ body {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   position: absolute;
@@ -116,6 +117,31 @@ body {
   right: 5%;
 }
 
+@keyframes mover {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+}
+
+@keyframes maior {
+  0% {
+    transform: scale(0.1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @media (min-width: 800px) {
   .bloco {
     width: 80px;
@@ -125,7 +151,7 @@ body {
   .glass {
     width: 750px;
     height: 570px;
-    top: 8.5%;
+    top: 8.1%;
   }
   .btn {
     top: 3.5%;

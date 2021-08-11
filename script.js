@@ -70,7 +70,6 @@ for (let i = colunas.length - 1; i >= 0; i--) {
         cor.style.backgroundImage = "url('img/escudo-flamengo.png')";
         alternaciaDeCor();
       }
-    } else {
     }
   });
 }
@@ -191,4 +190,12 @@ btn.addEventListener("click", function () {
   } else {
     glass.style.display = "none";
   }
+});
+
+container.addEventListener("click", function () {
+  const jogador = document.querySelector(".jogador");
+  jogador.classList.add("chutar");
+  setTimeout(function run() {
+    jogador.classList.remove("chutar");
+  }, 700);
 });
