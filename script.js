@@ -6,6 +6,7 @@ function criaCardVitoria(jogador) {
   criarTitulo(cardVitoria)
   criaTrofeu(cardVitoria)
   criaVencedor(cardVitoria, jogador)
+  criaFogosArtificos(cardVitoria)
 }
 
 function criarTitulo(cardVitoria) {
@@ -26,6 +27,12 @@ function criaVencedor(cardVitoria, jogador) {
   criaVencedor.classList.add("criaVencedor")
   criaVencedor.innerText = `${jogador}`
   cardVitoria.appendChild(criaVencedor)
+}
+
+function criaFogosArtificos(cardVitoria) {
+  const fogosArtificos = document.createElement("div");
+  fogosArtificos.classList.add("fogos-artificios")
+  cardVitoria.appendChild(fogosArtificos)
 }
 
 
