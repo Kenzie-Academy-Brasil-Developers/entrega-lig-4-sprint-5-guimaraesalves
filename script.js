@@ -38,8 +38,6 @@ function criaFogosArtificos(cardVitoria) {
 
 function fogosArtificios() {
   const fogos = document.querySelector('.fogos-artificios')
-
-  console.log(fogos)
   const fireworks = new Fireworks(fogos, {
     rocketsPoint: 50,
     hue: { min: 0, max: 360 },
