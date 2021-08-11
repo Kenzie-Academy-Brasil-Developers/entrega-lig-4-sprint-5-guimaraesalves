@@ -6,6 +6,7 @@ function criaCardVitoria(jogador) {
   criarTitulo(cardVitoria)
   criaTrofeu(cardVitoria)
   criaVencedor(cardVitoria, jogador)
+  recomecar(cardVitoria)
   criaFogosArtificos(cardVitoria)
   fogosArtificios()
 }
@@ -34,6 +35,27 @@ function criaFogosArtificos(cardVitoria) {
   const fogosArtificos = document.createElement("div");
   fogosArtificos.classList.add("fogos-artificios")
   cardVitoria.appendChild(fogosArtificos)
+}
+
+function recomecar(cardVitoria) {
+  let button = document.createElement('div')
+
+  button.innerText = "Reiniciar"
+  button.classList.add('reiniciar')
+
+  cardVitoria.appendChild(button)
+
+  eventosClick()
+}
+
+function eventosClick() {
+  let button = document.querySelector('.reiniciar')
+
+  button.addEventListener('click', refreshPagina)
+}
+
+function refreshPagina() {
+  window.location.reload();
 }
 
 function fogosArtificios() {
