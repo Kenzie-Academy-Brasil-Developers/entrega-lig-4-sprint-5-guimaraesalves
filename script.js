@@ -1,9 +1,11 @@
 function criaCardVitoria(jogador) {
   const cardVitoria = document.createElement("div");
   cardVitoria.classList.add("cardVitoria")
-  criarTitulo(cardVitoria)
-  criaVencedor(cardVitoria, jogador)
   document.body.appendChild(cardVitoria)
+
+  criarTitulo(cardVitoria)
+  criaTrofeu(cardVitoria)
+  criaVencedor(cardVitoria, jogador)
 }
 
 function criarTitulo(cardVitoria) {
@@ -11,8 +13,6 @@ function criarTitulo(cardVitoria) {
   criarTitulo.classList.add("criarTitulo")
   criarTitulo.innerText = "Campeão"
   cardVitoria.appendChild(criarTitulo)
-
-  criaTrofeu(cardVitoria)
 }
 
 function criaTrofeu(cardVitoria) {
