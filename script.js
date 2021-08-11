@@ -43,11 +43,20 @@ let arrTabuleiro = [
  * @returns
  */
 
-const condicaoVitoria = (numUm, numDois, param) => {
+const condicaoVitoriaHorizontal = (numUm, numDois, param) => {
   return (
     arrTabuleiro[numUm][numDois] === arrTabuleiro[numUm][numDois + 1] &&
     arrTabuleiro[numUm][numDois + 1] === arrTabuleiro[numUm][numDois + 2] &&
     arrTabuleiro[numUm][numDois + 2] === arrTabuleiro[numUm][numDois + 3] &&
+    arrTabuleiro[numUm][numDois] === param
+  );
+};
+
+const condicaoVitoriaVertical = (numUm, numDois, param) => {
+  return (
+    arrTabuleiro[numUm][numDois] === arrTabuleiro[numUm + 1][numDois] &&
+    arrTabuleiro[numUm + 1][numDois] === arrTabuleiro[numUm + 2][numDois] &&
+    arrTabuleiro[numUm + 2][numDois] === arrTabuleiro[numUm + 3][numDois] &&
     arrTabuleiro[numUm][numDois] === param
   );
 };
@@ -60,7 +69,7 @@ const condicaoVitoria = (numUm, numDois, param) => {
 const vitoriaHorizontal = (disco) => {
   for (let i = 0; i < arrTabuleiro.length; i++) {
     for (let j = 0; j < arrTabuleiro[0].length - 3; j++) {
-      if (condicaoVitoria(i, j, disco)) {
+      if (condicaoVitoriaHorizontal(i, j, disco)) {
         console.log("Vitoria Horizontal");
       }
     }
@@ -75,7 +84,7 @@ const vitoriaHorizontal = (disco) => {
 const vitoriaVertical = (disco) => {
   for (let i = 0; i < arrTabuleiro.length - 3; i++) {
     for (let j = 0; j < arrTabuleiro[0].length; j++) {
-      if (condicaoVitoria(i, j, disco)) {
+      if (condicaoVitoriaVertical(i, j, disco)) {
         console.log("Vitoria Vertical");
       }
     }
