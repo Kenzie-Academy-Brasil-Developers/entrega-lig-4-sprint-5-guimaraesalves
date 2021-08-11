@@ -13,7 +13,7 @@ function criaCardVitoria(jogador) {
 function criarTitulo(cardVitoria) {
   const criarTitulo = document.createElement("div");
   criarTitulo.classList.add("criarTitulo")
-  criarTitulo.innerText = "Campeão"
+  criarTitulo.innerText = "Campeão da Taça Rio"
   cardVitoria.appendChild(criarTitulo)
 }
 
