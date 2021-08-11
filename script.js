@@ -1,4 +1,18 @@
 const container = document.querySelector(".container");
+// === SONS ===
+
+//sons da torcida durante o jogo.
+const torcida = new Audio();
+torcida.src = "./assets/sons/publico_estadio.mp3";
+torcida.volume = 0.05;
+torcida.loop = true;
+torcida.play();
+
+// Som das jogadas;
+const chute = new Audio();
+chute.src = "./assets/sons/chute.mp3";
+chute.volume = 0.15;
+
 
 const tabuleiro = () => {
   for (let i = 0; i < 7; i++) {
@@ -15,34 +29,33 @@ const tabuleiro = () => {
 
 tabuleiro();
 
-
 const jogadores = document.querySelector(".jogadores");
-
-
 
 const jogador = document.createElement("div");
 jogador.classList.add("jogador");
 jogadores.appendChild(jogador);
 
-
-
 //Inicializando eventos Selecionando discos
 
 // variável de controle do clique.
-let player1 = "B";
-let player2 = "R";
+let player1 = "R";
+let player2 = "B";
 let jogadorAtual = player1;
 
 // alternância de jogadores
+function alternaciaDeCor() {
+  
 container.addEventListener("click", function (event) {
+  console.log("container");
   if (jogadorAtual === player1) {
-    jogador.style.backgroundColor = "red";
+    jogador.style.backgroundColor = "black";
     jogadorAtual = player2; //volta para true bloqueando o clique do jogador 2;
   } else {
-    jogador.style.backgroundColor = "black";
+    jogador.style.backgroundColor = "red";
     jogadorAtual = player1;
   }
 });
+}
 
 let arrTabuleiro = [
   ["V", "V", "V", "V", "V", "V"],
@@ -54,12 +67,161 @@ let arrTabuleiro = [
   ["V", "V", "V", "V", "V", "V"],
 ];
 
+const colunas = document.querySelectorAll(".linha");
 
-const colunas = document.querySelectorAll(".linha")
 
-for (let i = colunas.length-1; i >= 0 ; i--) {
-  colunas[i].addEventListener("click", function(evt) {
-    let indice = arrTabuleiro[i].indexOf("V");
+
+  
+
+
+for (let i = colunas.length - 1; i >= 0; i--) {
+  colunas[i].addEventListener("click", function (evt) {
+    let indice = arrTabuleiro[i].lastIndexOf("V");
     arrTabuleiro[i][indice] = jogadorAtual;
-  })
+    vitoria(jogadorAtual);
+    //colocar a cor do disco no local do tabuleiro
+    let estilo = `.linha_${[i]} > .bloco_${[indice]}`;
+    let cor = document.querySelector(estilo);
+    if (cor !== null) {
+      if (jogadorAtual === "R") {
+        cor.style.backgroundColor = "red";
+        alternaciaDeCor();
+
+        //som
+        chute.play()
+
+        
+        
+
+      } else {
+        cor.style.backgroundColor = "black";
+        alternaciaDeCor();
+
+        //som
+        chute.play();
+      }
+    } else {
+
+    }
+    
+
+  });
+  
 }
+
+
+
+/**
+ * Função para checar condição
+ * @param {Number} numUm
+ * @param {Number} numDois
+ * @param {String} param
+ * @returns
+ */
+
+const condicaoVitoriaVertical = (numUm, numDois, param) => {
+  return (
+    arrTabuleiro[numUm][numDois] === arrTabuleiro[numUm][numDois + 1] &&
+    arrTabuleiro[numUm][numDois + 1] === arrTabuleiro[numUm][numDois + 2] &&
+    arrTabuleiro[numUm][numDois + 2] === arrTabuleiro[numUm][numDois + 3] &&
+    arrTabuleiro[numUm][numDois] === param
+  );
+};
+
+const condicaoVitoriaHorizontal = (numUm, numDois, param) => {
+  return (
+    arrTabuleiro[numUm][numDois] === arrTabuleiro[numUm + 1][numDois] &&
+    arrTabuleiro[numUm + 1][numDois] === arrTabuleiro[numUm + 2][numDois] &&
+    arrTabuleiro[numUm + 2][numDois] === arrTabuleiro[numUm + 3][numDois] &&
+    arrTabuleiro[numUm][numDois] === param
+  );
+};
+
+/**
+ * Função para checar a vitória na horizontal
+ * @param {String} disco
+ */
+
+const vitoriaVertical = (disco) => {
+  for (let i = 0; i < arrTabuleiro.length; i++) {
+    for (let j = 0; j < arrTabuleiro[0].length - 3; j++) {
+      if (condicaoVitoriaVertical(i, j, disco)) {
+        console.log("Vitoria Vertical");
+      }
+    }
+  }
+};
+
+/**
+ * Função para checar a vitória na vertical
+ * @param {String} disco
+ */
+
+const vitoriaHorizontal = (disco) => {
+  for (let i = 0; i < arrTabuleiro.length - 3; i++) {
+    for (let j = 0; j < arrTabuleiro[0].length; j++) {
+      if (condicaoVitoriaHorizontal(i, j, disco)) {
+        console.log("Vitoria Horizontal");
+      }
+    }
+  }
+};
+
+const vitoriaDiagonal = (disco) => {
+  for (let i = 0; i < arrTabuleiro.length - 3; i++) {
+    for (let j = 0; j < arrTabuleiro[0].length; j++) {
+      if (
+        arrTabuleiro[i][j] === arrTabuleiro[i + 1][j + 1] &&
+        arrTabuleiro[i + 1][j + 1] === arrTabuleiro[i + 2][j + 2] &&
+        arrTabuleiro[i + 2][j + 2] === arrTabuleiro[i + 3][j + 3] &&
+        arrTabuleiro[i][j] === disco
+      ) {
+        console.log("Vitoria Diagonal");
+      }
+    }
+  }
+};
+
+const vitoriaDiagonal2 = (disco) => {
+  for (let i = 5; i > 2; i--) {
+    for (let j = 0; j < arrTabuleiro[0].length; j++) {
+      if (
+        arrTabuleiro[i][j] === arrTabuleiro[i - 1][j + 1] &&
+        arrTabuleiro[i - 1][j + 1] === arrTabuleiro[i - 2][j + 2] &&
+        arrTabuleiro[i - 2][j + 2] === arrTabuleiro[i - 3][j + 3] &&
+        arrTabuleiro[i][j] === disco
+      ) {
+        console.log("Vitoria Diagonal");
+      }
+    }
+  }
+};
+
+/**
+ * Função para checar a vitória
+ * @param {String} discoVencedor 
+ */
+
+const vitoria = (discoVencedor) => {
+  vitoriaHorizontal(discoVencedor);
+  vitoriaVertical(discoVencedor);
+  vitoriaDiagonal(discoVencedor);
+  vitoriaDiagonal2(discoVencedor);
+};
+
+
+
+function criaCardVitoria(jogador) {
+  const cardVitoria = document.createElement("div");
+  cardVitoria.classList.add("cardVitoria")
+  cardVitoria.innerText = jogador
+  document.body.appendChild(cardVitoria)
+}
+
+// criaCardVitoria("Palmeiras tem Mundial")
+
+
+//função criar sons
+
+
+
