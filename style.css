@@ -51,11 +51,6 @@ body {
 }
 
 .jogador {
-  background-color: black;
-  border-radius: 50%;
-}
-
-.jogador_2 {
   background-color: red;
   border-radius: 50%;
 }

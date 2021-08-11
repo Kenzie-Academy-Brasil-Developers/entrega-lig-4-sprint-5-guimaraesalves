@@ -55,13 +55,14 @@ for (let i = colunas.length - 1; i >= 0; i--) {
   colunas[i].addEventListener("click", function (evt) {
     let indice = arrTabuleiro[i].lastIndexOf("V");
     arrTabuleiro[i][indice] = jogadorAtual;
+    vitoria(jogadorAtual);
     //colocar a cor do disco no local do tabuleiro
     let estilo = `.linha_${[i]} > .bloco_${[indice]}`;
     let cor = document.querySelector(estilo);
     if (jogadorAtual === "B") {
-      cor.style.backgroundColor = "black";
-    } else {
       cor.style.backgroundColor = "red";
+    } else {
+      cor.style.backgroundColor = "black";
     }
   });
 }
@@ -164,7 +165,7 @@ const vitoria = (discoVencedor) => {
   vitoriaDiagonal2(discoVencedor);
 };
 
-vitoria("P")
+
 
 function criaCardVitoria(jogador) {
   const cardVitoria = document.createElement("div");
@@ -173,4 +174,4 @@ function criaCardVitoria(jogador) {
   document.body.appendChild(cardVitoria)
 }
 
-criaCardVitoria("Palmeiras tem Mundial")
+// criaCardVitoria("Palmeiras tem Mundial")
