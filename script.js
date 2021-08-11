@@ -15,16 +15,11 @@ const tabuleiro = () => {
 
 tabuleiro();
 
-
 const jogadores = document.querySelector(".jogadores");
-
-
 
 const jogador = document.createElement("div");
 jogador.classList.add("jogador");
 jogadores.appendChild(jogador);
-
-
 
 //Inicializando eventos Selecionando discos
 
@@ -36,10 +31,10 @@ let jogadorAtual = player1;
 // alternância de jogadores
 container.addEventListener("click", function (event) {
   if (jogadorAtual === player1) {
-    jogador.style.backgroundColor = "red";
+    jogador.style.backgroundColor = "black";
     jogadorAtual = player2; //volta para true bloqueando o clique do jogador 2;
   } else {
-    jogador.style.backgroundColor = "black";
+    jogador.style.backgroundColor = "red";
     jogadorAtual = player1;
   }
 });
@@ -54,14 +49,21 @@ let arrTabuleiro = [
   ["V", "V", "V", "V", "V", "V"],
 ];
 
+const colunas = document.querySelectorAll(".linha");
 
-const colunas = document.querySelectorAll(".linha")
-
-for (let i = colunas.length-1; i >= 0 ; i--) {
-  colunas[i].addEventListener("click", function(evt) {
-    let indice = arrTabuleiro[i].indexOf("V");
+for (let i = colunas.length - 1; i >= 0; i--) {
+  colunas[i].addEventListener("click", function (evt) {
+    let indice = arrTabuleiro[i].lastIndexOf("V");
     arrTabuleiro[i][indice] = jogadorAtual;
-  })
+    //colocar a cor do disco no local do tabuleiro
+    let estilo = `.linha_${[i]} > .bloco_${[indice]}`;
+    let cor = document.querySelector(estilo);
+    if (jogadorAtual === "B") {
+      cor.style.backgroundColor = "black";
+    } else {
+      cor.style.backgroundColor = "red";
+    }
+  });
 }
 
 /**
