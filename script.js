@@ -13,6 +13,11 @@ const chute = new Audio();
 chute.src = "./assets/sons/chute.mp3";
 chute.volume = 0.15;
 
+//Som da vitória.
+const venceu = new Audio();
+venceu.src = "./assets/sons/VitoriaPublico.mp3";
+venceu.volume = 0.10;
+
 
 const tabuleiro = () => {
   for (let i = 0; i < 7; i++) {
@@ -147,6 +152,9 @@ const vitoriaVertical = (disco) => {
     for (let j = 0; j < arrTabuleiro[0].length - 3; j++) {
       if (condicaoVitoriaVertical(i, j, disco)) {
         console.log("Vitoria Vertical");
+
+        //Som da vitória.
+        venceu.play();
       }
     }
   }
@@ -162,6 +170,7 @@ const vitoriaHorizontal = (disco) => {
     for (let j = 0; j < arrTabuleiro[0].length; j++) {
       if (condicaoVitoriaHorizontal(i, j, disco)) {
         console.log("Vitoria Horizontal");
+        venceu.play();
       }
     }
   }
@@ -177,6 +186,7 @@ const vitoriaDiagonal = (disco) => {
         arrTabuleiro[i][j] === disco
       ) {
         console.log("Vitoria Diagonal");
+        venceu.play();
       }
     }
   }
@@ -192,6 +202,7 @@ const vitoriaDiagonal2 = (disco) => {
         arrTabuleiro[i][j] === disco
       ) {
         console.log("Vitoria Diagonal");
+        venceu.play();
       }
     }
   }
