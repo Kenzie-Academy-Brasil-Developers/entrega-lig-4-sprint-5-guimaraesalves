@@ -24,12 +24,15 @@ jogadores.appendChild(jogador);
 //Inicializando eventos Selecionando discos
 
 // variável de controle do clique.
-let player1 = "B";
-let player2 = "R";
+let player1 = "R";
+let player2 = "B";
 let jogadorAtual = player1;
 
 // alternância de jogadores
+function alternaciaDeCor() {
+  
 container.addEventListener("click", function (event) {
+  console.log("container");
   if (jogadorAtual === player1) {
     jogador.style.backgroundColor = "black";
     jogadorAtual = player2; //volta para true bloqueando o clique do jogador 2;
@@ -38,6 +41,7 @@ container.addEventListener("click", function (event) {
     jogadorAtual = player1;
   }
 });
+}
 
 let arrTabuleiro = [
   ["V", "V", "V", "V", "V", "V"],
@@ -59,13 +63,21 @@ for (let i = colunas.length - 1; i >= 0; i--) {
     //colocar a cor do disco no local do tabuleiro
     let estilo = `.linha_${[i]} > .bloco_${[indice]}`;
     let cor = document.querySelector(estilo);
-    if (jogadorAtual === "B") {
-      cor.style.backgroundColor = "red";
+    if (cor !== null) {
+      if (jogadorAtual === "R") {
+        cor.style.backgroundColor = "red";
+        alternaciaDeCor();
+      } else {
+        cor.style.backgroundColor = "black";
+        alternaciaDeCor();
+      }
     } else {
-      cor.style.backgroundColor = "black";
+
     }
   });
 }
+
+
 
 /**
  * Função para checar condição
