@@ -74,11 +74,20 @@ for (let i = colunas.length - 1; i >= 0; i--) {
  * @returns
  */
 
-const condicaoVitoria = (numUm, numDois, param) => {
+const condicaoVitoriaHorizontal = (numUm, numDois, param) => {
   return (
     arrTabuleiro[numUm][numDois] === arrTabuleiro[numUm][numDois + 1] &&
     arrTabuleiro[numUm][numDois + 1] === arrTabuleiro[numUm][numDois + 2] &&
     arrTabuleiro[numUm][numDois + 2] === arrTabuleiro[numUm][numDois + 3] &&
+    arrTabuleiro[numUm][numDois] === param
+  );
+};
+
+const condicaoVitoriaVertical = (numUm, numDois, param) => {
+  return (
+    arrTabuleiro[numUm][numDois] === arrTabuleiro[numUm + 1][numDois] &&
+    arrTabuleiro[numUm + 1][numDois] === arrTabuleiro[numUm + 2][numDois] &&
+    arrTabuleiro[numUm + 2][numDois] === arrTabuleiro[numUm + 3][numDois] &&
     arrTabuleiro[numUm][numDois] === param
   );
 };
@@ -91,8 +100,8 @@ const condicaoVitoria = (numUm, numDois, param) => {
 const vitoriaHorizontal = (disco) => {
   for (let i = 0; i < arrTabuleiro.length; i++) {
     for (let j = 0; j < arrTabuleiro[0].length - 3; j++) {
-      if (condicaoVitoria(i, j, disco)) {
-        console.log("test_0");
+      if (condicaoVitoriaHorizontal(i, j, disco)) {
+        console.log("Vitoria Horizontal");
       }
     }
   }
@@ -106,8 +115,8 @@ const vitoriaHorizontal = (disco) => {
 const vitoriaVertical = (disco) => {
   for (let i = 0; i < arrTabuleiro.length - 3; i++) {
     for (let j = 0; j < arrTabuleiro[0].length; j++) {
-      if (condicaoVitoria(i, j, disco)) {
-        console.log("test_1");
+      if (condicaoVitoriaVertical(i, j, disco)) {
+        console.log("Vitoria Vertical");
       }
     }
   }
@@ -122,7 +131,7 @@ const vitoriaDiagonal = (disco) => {
         arrTabuleiro[i + 2][j + 2] === arrTabuleiro[i + 3][j + 3] &&
         arrTabuleiro[i][j] === disco
       ) {
-        console.log("test_2");
+        console.log("Vitoria Diagonal");
       }
     }
   }
@@ -137,7 +146,7 @@ const vitoriaDiagonal2 = (disco) => {
         arrTabuleiro[i - 2][j + 2] === arrTabuleiro[i - 3][j + 3] &&
         arrTabuleiro[i][j] === disco
       ) {
-        console.log("test_3");
+        console.log("Vitoria Diagonal");
       }
     }
   }
