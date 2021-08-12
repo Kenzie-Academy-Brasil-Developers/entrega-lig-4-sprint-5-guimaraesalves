@@ -31,6 +31,7 @@ body {
   margin: 1px;
   background-color: rgba(255, 255, 255, 0.514);
   background-size: cover;
+  cursor: pointer;
 }
 
 .linha {
@@ -126,6 +127,7 @@ body {
   position: absolute;
   top: 5%;
   right: 5%;
+  cursor: pointer;
 }
 
 .cronometro {
