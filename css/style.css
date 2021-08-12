@@ -13,7 +13,7 @@ header {
 }
 
 .audio {
-  background-image: url(img/som.png);
+  background-image: url(../assets/img/som.png);
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -60,7 +60,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-image: url(img/estadio.jpg);
+  background-image: url(../assets/img/estadio.jpg);
   background-size: cover;
   min-width: 360px;
   background-position: bottom;
@@ -71,7 +71,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(img/campo.jpg);
+  background-image: url(../assets/img/campo.jpg);
   border: 2px solid #fff;
   background-size: 100% 100%;
   background-position: center;
@@ -107,7 +107,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: no-repeat url(./img/background.jpg) center;
+  background: no-repeat url(../assets/img/background.jpg) center;
   background-size: cover;
   color: white;
   width: 100vw;
@@ -153,7 +153,7 @@ body {
 }
 
 .jogador {
-  background-image: url(img/escudo-fluminense.png);
+  background-image: url(../assets/img/escudo-fluminense.png);
   background-size: cover;
 }
 
@@ -199,7 +199,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: no-repeat url(./img/background.jpg);
+  background: no-repeat url(../assets/img/background.jpg);
   background-size: cover;
   color: white;
   width: 100vw;
@@ -210,6 +210,206 @@ body {
   align-items: center;
   font-size: 3rem;
 }
+
+
+.criarTitulo,
+.reiniciar,
+.criaVencedor {
+  color: rgb(229, 255, 0);
+  font-size: 40px;
+  font-weight: 700;
+  text-shadow: 2px 2px rgb(143, 41, 41);
+  text-align: center;
+}
+
+.criaTrofeu {
+  background: no-repeat url(../assets/img/trofeu.png) rgba(255, 255, 255, 0.25);
+  background-size: contain;
+  width: 120px;
+  height: 140px;
+  margin: 32px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.reiniciar {
+  margin: 32px 0;
+  background-color: #66a6ff;
+  background-image: url(../assets/img/Futebol-Bola-de-Futebol.png);
+  background-size: cover;
+  border-radius: 39px;
+  font-size: 20px;
+  width: 81px;
+  height: 81px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.fogos-artificios {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+.cardInicial {
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/img/estadio.jpg);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 600px;
+}
+
+#titulo {
+  color: gold;
+  text-shadow: 2px 2px black;
+  font-size: 40px;
+}
+
+#trofeu {
+  width: 70px;
+  height: 70px;
+}
+
+.criarTimes {
+  width: 184px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#time1 {
+  width: 50px;
+  height: 50px;
+}
+
+#versus {
+  width: 50px;
+  height: 50px;
+}
+
+#time2 {
+  width: 50px;
+  height: 50px;
+}
+
+.botoesIniciais {
+  background-image: url(../assets/img/Futebol-Bola-de-Futebol.png);
+  background-size: cover;
+  border-radius: 39px;
+  width: 81px;
+  height: 81px;
+  color: rgb(229, 255, 0);
+  font-size: 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px rgb(143, 41, 41);
+}
+
+#regras {
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/img/estadio.jpg);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#regrasEscritas{
+  width: 265px;
+  height: 500px;
+  background-color: white;
+  opacity: 0.8;
+  font-size: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#botaoFechar {
+  margin-top: 20px;
+  width: 64px;
+  height: 32px;
+}
+
+#equipe {
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/img/estadio.jpg);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#equipeEscritas{
+  width: 265px;
+  height: 500px;
+  background-color: white;
+  opacity: 0.8;
+  font-size: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#equipeContainer {
+  width: 265px;
+  height: 500px;
+  background-color: white;
+  opacity: 0.8;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#criarDivImg {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#criarDivImg img{
+  width: 40px;
+  height: 40px;
+}
+
 
 @media (min-width: 800px) {
   header {
@@ -242,48 +442,24 @@ body {
     height: 80px;
     margin: 5px 10px 5px 10px;
   }
-}
 
-.criarTitulo,
-.reiniciar,
-.criaVencedor {
-  color: rgb(229, 255, 0);
-  font-size: 40px;
-  font-weight: 700;
-  text-shadow: 2px 2px rgb(143, 41, 41);
-}
+  #trofeu {
+    width: 100px;
+    height: 100px;
+  }
 
-.criaTrofeu {
-  background: no-repeat url(./img/trofeu.png) rgba(255, 255, 255, 0.25);
-  background-size: contain;
-  width: 120px;
-  height: 140px;
-  margin: 32px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.reiniciar {
-  margin: 32px 0;
-  background-color: #66a6ff;
-  background-image: url(./img/Futebol-Bola-de-Futebol.png);
-  background-size: cover;
-  border-radius: 39px;
-  font-size: 20px;
-  width: 81px;
-  height: 81px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.fogos-artificios {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%);
+  #time1 {
+    width: 80px;
+    height: 80px;
+  }
+  
+  #versus {
+    width: 80px;
+    height: 80px;
+  }
+  
+  #time2 {
+    width: 100px;
+    height: 100px;
+  }
 }
