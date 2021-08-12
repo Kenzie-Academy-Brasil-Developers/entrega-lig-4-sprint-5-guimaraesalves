@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+header {
+  min-width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
 h1 {
   padding: 20px;
   font-family: "Georama", sans-serif;
@@ -75,7 +83,7 @@ body {
 }
 
 .chutar {
-  animation: mover 1.5s linear;
+  animation: mover 1s linear;
 }
 
 .peca {
@@ -99,6 +107,13 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 3rem;
+}
+.audio {
+  background-image: url(img/som.png);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-size: cover;
 }
 
 .glass {
@@ -126,9 +141,6 @@ body {
 }
 
 .btn {
-  position: absolute;
-  top: 5%;
-  right: 5%;
   cursor: pointer;
 }
 
@@ -141,19 +153,19 @@ body {
 @keyframes mover {
   0% {
     transform: translateY(-300px);
-    opacity: 0;
+    opacity: 0.2;
   }
   25% {
     transform: translateY(-200px);
-    opacity: 0.2;
+    opacity: 0.4;
   }
   50% {
     transform: translateY(-100px);
-    opacity: 0.3;
+    opacity: 0.6;
   }
   75% {
-    transform: translateY(25px);
-    opacity: 0.6;
+    transform: translateY(30px);
+    opacity: 0.8;
   }
   100% {
     transform: translateY(0px);
@@ -174,6 +186,9 @@ body {
 }
 
 @media (min-width: 800px) {
+  header {
+    min-width: 700px;
+  }
   .bloco {
     width: 80px;
     height: 80px;

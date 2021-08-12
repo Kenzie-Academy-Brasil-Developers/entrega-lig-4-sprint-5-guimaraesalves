@@ -4,7 +4,7 @@ const container = document.querySelector(".container");
 //sons da torcida durante o jogo.
 const torcida = new Audio();
 torcida.src = "./assets/sons/publico_estadio.mp3";
-torcida.volume = 0.5;
+torcida.volume = 0.2;
 torcida.loop = true;
 torcida.play();
 
@@ -18,6 +18,17 @@ const venceu = new Audio();
 venceu.src = "./assets/sons/VitoriaPublico.mp3";
 venceu.volume = 0.5;
 
+const audio = document.querySelector(".audio");
+
+audio.addEventListener("click", function () {
+  if (torcida.muted) {
+    torcida.muted = !torcida.muted;
+    audio.style.backgroundImage = "url(img/som.png)";
+  } else {
+    torcida.muted = !torcida.muted;
+    audio.style.backgroundImage = "url(img/mudo.png)";
+  }
+});
 
 const tabuleiro = () => {
   for (let i = 0; i < 7; i++) {
@@ -72,12 +83,12 @@ let arrTabuleiro = [
 ];
 
 const empate = () => {
-  let ret = true
-  arrTabuleiro.map(elem => {
-    ret = elem.some(item => item === "V")
-  })
-  return ret
-}
+  let ret = true;
+  arrTabuleiro.map((elem) => {
+    ret = elem.some((item) => item === "V");
+  });
+  return ret;
+};
 
 const colunas = document.querySelectorAll(".linha");
 for (let i = colunas.length - 1; i >= 0; i--) {
@@ -87,7 +98,7 @@ for (let i = colunas.length - 1; i >= 0; i--) {
     if (empate()) {
       vitoria(jogadorAtual);
     } else {
-      console.log("Empatou", arrTabuleiro)
+      console.log("Empatou", arrTabuleiro);
     }
     //colocar a cor do disco no local do tabuleiro
     let estilo = `.linha_${[i]} > .bloco_${[indice]}`;
@@ -220,7 +231,7 @@ const criaCardVitoria = (jogador) => {
   cardVitoria.classList.add("cardVitoria");
   cardVitoria.innerText = jogador;
   document.body.appendChild(cardVitoria);
-}
+};
 
 const btn = document.querySelector(".btn");
 
@@ -259,58 +270,58 @@ function cronometro() {
 cronometro();
 
 function criarTitulo(cardVitoria, titulo) {
-  cardVitoria.classList.add("cardVitoria")
-  document.body.appendChild(cardVitoria)
+  cardVitoria.classList.add("cardVitoria");
+  document.body.appendChild(cardVitoria);
 
-  criarTitulo(cardVitoria)
-  criaTrofeu(cardVitoria)
-  criaVencedor(cardVitoria, jogador)
-  recomecar(cardVitoria)
-  criaFogosArtificos(cardVitoria)
-  fogosArtificios()
+  criarTitulo(cardVitoria);
+  criaTrofeu(cardVitoria);
+  criaVencedor(cardVitoria, jogador);
+  recomecar(cardVitoria);
+  criaFogosArtificos(cardVitoria);
+  fogosArtificios();
 }
 
 function criarTitulo(cardVitoria) {
   const criarTitulo = document.createElement("div");
-  criarTitulo.classList.add("criarTitulo")
-  criarTitulo.innerText = "Campeão da Taça Rio"
-  cardVitoria.appendChild(criarTitulo)
+  criarTitulo.classList.add("criarTitulo");
+  criarTitulo.innerText = "Campeão da Taça Rio";
+  cardVitoria.appendChild(criarTitulo);
 }
 
 function criaTrofeu(cardVitoria) {
   const criaTrofeu = document.createElement("img");
-  criaTrofeu.classList.add("criaTrofeu")
-  cardVitoria.appendChild(criaTrofeu)
+  criaTrofeu.classList.add("criaTrofeu");
+  cardVitoria.appendChild(criaTrofeu);
 }
 
 function criaVencedor(cardVitoria, jogador) {
   const criaVencedor = document.createElement("div");
-  criaVencedor.classList.add("criaVencedor")
-  criaVencedor.innerText = `${jogador}`
-  cardVitoria.appendChild(criaVencedor)
+  criaVencedor.classList.add("criaVencedor");
+  criaVencedor.innerText = `${jogador}`;
+  cardVitoria.appendChild(criaVencedor);
 }
 
 function criaFogosArtificos(cardVitoria) {
   const fogosArtificos = document.createElement("div");
-  fogosArtificos.classList.add("fogos-artificios")
-  cardVitoria.appendChild(fogosArtificos)
+  fogosArtificos.classList.add("fogos-artificios");
+  cardVitoria.appendChild(fogosArtificos);
 }
 
 function recomecar(cardVitoria) {
-  let button = document.createElement('div')
+  let button = document.createElement("div");
 
-  button.innerText = "Reiniciar"
-  button.classList.add('reiniciar')
+  button.innerText = "Reiniciar";
+  button.classList.add("reiniciar");
 
-  cardVitoria.appendChild(button)
+  cardVitoria.appendChild(button);
 
-  eventosClick()
+  eventosClick();
 }
 
 function eventosClick() {
-  let button = document.querySelector('.reiniciar')
+  let button = document.querySelector(".reiniciar");
 
-  button.addEventListener('click', refreshPagina)
+  button.addEventListener("click", refreshPagina);
 }
 
 function refreshPagina() {
@@ -318,7 +329,7 @@ function refreshPagina() {
 }
 
 function fogosArtificios() {
-  const fogos = document.querySelector('.fogos-artificios')
+  const fogos = document.querySelector(".fogos-artificios");
   const fireworks = new Fireworks(fogos, {
     rocketsPoint: 50,
     hue: { min: 0, max: 360 },
@@ -334,22 +345,22 @@ function fogosArtificios() {
     brightness: {
       min: 50,
       max: 80,
-      decay: { min: 0.015, max: 0.03 }
+      decay: { min: 0.015, max: 0.03 },
     },
     mouse: {
       click: false,
       move: false,
-      max: 3
+      max: 3,
     },
     boundaries: {
       x: 50,
       y: 50,
       width: fogos.clientWidth,
-      height: fogos.clientHeight
+      height: fogos.clientHeight,
     },
   });
 
-  fireworks.setSize({ height: 500, width: 450 })
+  fireworks.setSize({ height: 500, width: 450 });
 
   fireworks.start();
 }
