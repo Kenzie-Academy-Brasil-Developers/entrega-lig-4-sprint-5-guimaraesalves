@@ -89,11 +89,14 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  background: no-repeat url(./img/background.jpg);
+  background-size: cover;
   color: white;
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
@@ -198,4 +201,10 @@ body {
   .glass > p {
     font-size: 25px;
   }
+}
+.criaTrofeu {
+  background: no-repeat url(./img/trofeu.png);
+  background-size: contain;
+  width: 150px;
+  height: 150px;
 }
