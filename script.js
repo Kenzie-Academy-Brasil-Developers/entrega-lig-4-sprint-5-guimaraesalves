@@ -87,7 +87,7 @@ for (let i = colunas.length - 1; i >= 0; i--) {
     if (empate()) {
       vitoria(jogadorAtual);
     } else {
-      console.log("Empatou", arrTabuleiro)
+      criaCardVitoria("EMPATE", "Taça Rio")
     }
     //colocar a cor do disco no local do tabuleiro
     let estilo = `.linha_${[i]} > .bloco_${[indice]}`;
@@ -251,23 +251,23 @@ const vitoria = (discoVencedor) => {
   vitoriaDiagonal2(discoVencedor);
 };
 
-function criaCardVitoria(jogador) {
+function criaCardVitoria(time, titulo) {
   const cardVitoria = document.createElement("div");
   cardVitoria.classList.add("cardVitoria")
   document.body.appendChild(cardVitoria)
 
-  criarTitulo(cardVitoria)
+  criarTitulo(cardVitoria, titulo)
   criaTrofeu(cardVitoria)
-  criaVencedor(cardVitoria, jogador)
+  criaVencedor(cardVitoria, time)
   recomecar(cardVitoria)
   criaFogosArtificos(cardVitoria)
   fogosArtificios()
 }
 
-function criarTitulo(cardVitoria) {
+function criarTitulo(cardVitoria, titulo = "Campeão da Taça Rio") {
   const criarTitulo = document.createElement("div");
   criarTitulo.classList.add("criarTitulo")
-  criarTitulo.innerText = "Campeão da Taça Rio"
+  criarTitulo.innerText = titulo
   cardVitoria.appendChild(criarTitulo)
 }
 
@@ -277,10 +277,10 @@ function criaTrofeu(cardVitoria) {
   cardVitoria.appendChild(criaTrofeu)
 }
 
-function criaVencedor(cardVitoria, jogador) {
+function criaVencedor(cardVitoria, time) {
   const criaVencedor = document.createElement("div");
   criaVencedor.classList.add("criaVencedor")
-  criaVencedor.innerText = `${jogador}`
+  criaVencedor.innerText = `${time}`
   cardVitoria.appendChild(criaVencedor)
 }
 
