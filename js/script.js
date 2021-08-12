@@ -23,10 +23,10 @@ const audio = document.querySelector(".audio");
 audio.addEventListener("click", function () {
   if (torcida.muted) {
     torcida.muted = !torcida.muted;
-    audio.style.backgroundImage = "url(../assets/img/som.png)";
+    audio.style.backgroundImage = "url(./assets/img/som.png)";
   } else {
     torcida.muted = !torcida.muted;
-    audio.style.backgroundImage = "url(../assets/img/mudo.png)";
+    audio.style.backgroundImage = "url(./assets/img/mudo.png)";
   }
 });
 
@@ -59,10 +59,10 @@ let jogadorAtual = player1;
 // alternância de jogadores
 function alternaciaDeCor() {
   if (jogadorAtual === player1) {
-    jogador.style.backgroundImage = "url('../assets/img/escudo-flamengo.png')";
+    jogador.style.backgroundImage = "url('./assets/img/escudo-flamengo.png')";
     jogadorAtual = player2; //volta para true bloqueando o clique do jogador 2;
   } else {
-    jogador.style.backgroundImage = "url('../assets/img/escudo-fluminense.png')";
+    jogador.style.backgroundImage = "url('./assets/img/escudo-fluminense.png')";
     jogadorAtual = player1;
   }
 }
@@ -104,14 +104,14 @@ for (let i = colunas.length - 1; i >= 0; i--) {
         const peca = document.createElement("div");
         peca.classList.add("peca");
         cor.appendChild(peca);
-        peca.style.backgroundImage = "url('../assets/img/escudo-fluminense.png')";
+        peca.style.backgroundImage = "url('./assets/img/escudo-fluminense.png')";
         alternaciaDeCor();
         chute.play();
       } else {
         const peca = document.createElement("div");
         peca.classList.add("peca");
         cor.appendChild(peca);
-        peca.style.backgroundImage = "url('../assets/img/escudo-flamengo.png')";
+        peca.style.backgroundImage = "url('./assets/img/escudo-flamengo.png')";
         alternaciaDeCor();
         chute.play();
       }
@@ -378,7 +378,7 @@ const fogosArtificios = () => {
   fireworks.start();
 }
 // Começo criação card inicial
-function cardInicialFunction () {
+function cardInicialFunction() {
   const cardInicial = document.createElement("div");
   cardInicial.classList = "cardInicial";
   document.body.appendChild(cardInicial);
@@ -394,7 +394,7 @@ function cardInicialFunction () {
   const botaoRegras = document.getElementById("botaoRegras");
   botaoRegras.addEventListener("click", () => {
     const chamarRegra = document.getElementById("regras");
-      chamarRegra.style.display = "flex";
+    chamarRegra.style.display = "flex";
   })
   equipe(cardInicial)
   const botaoEquipe = document.getElementById("botaoEquipe");
@@ -407,7 +407,7 @@ function cardInicialFunction () {
 function criarTrofeu(container) {
   const criarTroféu = document.createElement("img");
   criarTroféu.id = "trofeu";
-  criarTroféu.src = "../assets/img/trofeu.png"
+  criarTroféu.src = "./assets/img/trofeu.png"
   container.appendChild(criarTroféu);
 }
 
@@ -417,15 +417,15 @@ function criarTimes(container) {
   container.appendChild(criarTimes);
   const criarTime1 = document.createElement("img");
   criarTime1.id = "time1";
-  criarTime1.src = "../assets/img/escudo-flamengo.png"
+  criarTime1.src = "./assets/img/escudo-flamengo.png"
   criarTimes.appendChild(criarTime1);
   const criarVersus = document.createElement("img");
   criarVersus.id = "versus";
-  criarVersus.src = "../assets/img/versus.png"
+  criarVersus.src = "./assets/img/versus.png"
   criarTimes.appendChild(criarVersus);
   const criarTime2 = document.createElement("img");
   criarTime2.id = "time2";
-  criarTime2.src = "../assets/img/escudo-fluminense.png"
+  criarTime2.src = "./assets/img/escudo-fluminense.png"
   criarTimes.appendChild(criarTime2);
 }
 
@@ -466,7 +466,7 @@ function regra(cardInicial) {
   botaoFechar.id = "botaoFechar";
   botaoFechar.innerText = "Voltar";
   regrasEscritas.appendChild(botaoFechar);
-  botaoFechar.addEventListener("click", function (evt){
+  botaoFechar.addEventListener("click", function (evt) {
     const chamarRegra = document.getElementById("regras");
     chamarRegra.style.display = "none";
   })
@@ -504,16 +504,16 @@ function equipe(cardInicial) {
   const botaoFechar = document.createElement("button");
   botaoFechar.id = "botaoFechar";
   botaoFechar.innerText = "Voltar";
-  criarCardEquipe(equipeEscritas, nomesEquipes[0],linkedinEquipe[0],githubEquipe[0]);
-  criarCardEquipe(equipeEscritas, nomesEquipes[1],linkedinEquipe[1],githubEquipe[1]);
-  criarCardEquipe(equipeEscritas, nomesEquipes[2],linkedinEquipe[2],githubEquipe[2]);
-  criarCardEquipe(equipeEscritas, nomesEquipes[3],linkedinEquipe[3],githubEquipe[3]);
+  criarCardEquipe(equipeEscritas, nomesEquipes[0], linkedinEquipe[0], githubEquipe[0]);
+  criarCardEquipe(equipeEscritas, nomesEquipes[1], linkedinEquipe[1], githubEquipe[1]);
+  criarCardEquipe(equipeEscritas, nomesEquipes[2], linkedinEquipe[2], githubEquipe[2]);
+  criarCardEquipe(equipeEscritas, nomesEquipes[3], linkedinEquipe[3], githubEquipe[3]);
   equipeEscritas.appendChild(botaoFechar);
-  botaoFechar.addEventListener("click", function (evt){
+  botaoFechar.addEventListener("click", function (evt) {
     const chamarRegra = document.getElementById("equipe");
     chamarRegra.style.display = "none";
   })
-  
+
 }
 
 function criarCardEquipe(equipeEscritas, nomeIntegrante, linkedin, github) {
@@ -526,28 +526,28 @@ function criarCardEquipe(equipeEscritas, nomeIntegrante, linkedin, github) {
   const criarDivImg = document.createElement("div");
   const criarImgLinkedin = document.createElement("img");
   const criarImgGithub = document.createElement("img");
-  
+
   criarNome.classList = "nomeClass";
   criarLinkedin.classList = "linkedinClass";
   criarGithub.classList = "githubClass";
-  
+
   criarNome.innerText = `${nomeIntegrante}`;
-  
+
   criarDivImg.id = "criarDivImg";
-  criarImgLinkedin.src = "../assets/img/linkedin.png";
+  criarImgLinkedin.src = "./assets/img/linkedin.png";
   criarLinkedin.appendChild(criarImgLinkedin);
 
-  criarImgGithub.src = "../assets/img/github.png";
+  criarImgGithub.src = "./assets/img/github.png";
   criarGithub.appendChild(criarImgGithub);
-  
+
   criarLinkedin.href = `${linkedin}`;
   criarGithub.href = `${github}`;
-  
+
   equipeContainer.appendChild(criarNome);
   equipeContainer.appendChild(criarDivImg);
   criarDivImg.appendChild(criarLinkedin);
   criarDivImg.appendChild(criarGithub);
-  
+
 }
 
 cardInicialFunction();
