@@ -251,7 +251,7 @@ const vitoria = (discoVencedor) => {
   vitoriaDiagonal2(discoVencedor);
 };
 
-function criaCardVitoria(time, titulo) {
+const criaCardVitoria = (time, titulo) => {
   const cardVitoria = document.createElement("div");
   cardVitoria.classList.add("cardVitoria")
   document.body.appendChild(cardVitoria)
@@ -264,33 +264,33 @@ function criaCardVitoria(time, titulo) {
   fogosArtificios()
 }
 
-function criarTitulo(cardVitoria, titulo = "CAMPEÃO DA TAÇA RIO") {
+const criarTitulo = (cardVitoria, titulo = "CAMPEÃO DA TAÇA RIO") => {
   const criarTitulo = document.createElement("div");
   criarTitulo.classList.add("criarTitulo")
   criarTitulo.innerText = titulo
   cardVitoria.appendChild(criarTitulo)
 }
 
-function criaTrofeu(cardVitoria) {
+const criaTrofeu = (cardVitoria) => {
   const criaTrofeu = document.createElement("img");
   criaTrofeu.classList.add("criaTrofeu")
   cardVitoria.appendChild(criaTrofeu)
 }
 
-function criaVencedor(cardVitoria, time) {
+const criaVencedor = (cardVitoria, time) => {
   const criaVencedor = document.createElement("div");
   criaVencedor.classList.add("criaVencedor")
   criaVencedor.innerText = `${time}`
   cardVitoria.appendChild(criaVencedor)
 }
 
-function criaFogosArtificos(cardVitoria) {
+const criaFogosArtificos = (cardVitoria) => {
   const fogosArtificos = document.createElement("div");
   fogosArtificos.classList.add("fogos-artificios")
   cardVitoria.appendChild(fogosArtificos)
 }
 
-function recomecar(cardVitoria) {
+const recomecar = (cardVitoria) => {
   let button = document.createElement('div')
 
   button.innerText = "Reiniciar"
@@ -301,17 +301,17 @@ function recomecar(cardVitoria) {
   eventosClick()
 }
 
-function eventosClick() {
+const eventosClick = () => {
   let button = document.querySelector('.reiniciar')
 
   button.addEventListener('click', refreshPagina)
 }
 
-function refreshPagina() {
+const refreshPagina = () => {
   window.location.reload();
 }
 
-function fogosArtificios() {
+const fogosArtificios = () => {
   const fogos = document.querySelector('.fogos-artificios')
   const fireworks = new Fireworks(fogos, {
     rocketsPoint: 50,
