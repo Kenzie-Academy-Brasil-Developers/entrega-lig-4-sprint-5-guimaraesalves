@@ -251,6 +251,12 @@ const vitoria = (discoVencedor) => {
   vitoriaDiagonal2(discoVencedor);
 };
 
+/**
+ * Função para criar a div Vitoria e chamar funcão
+ * @param {String} time 
+ * @param {String} titulo 
+ */
+
 const criaCardVitoria = (time, titulo) => {
   const cardVitoria = document.createElement("div");
   cardVitoria.classList.add("cardVitoria")
@@ -263,6 +269,12 @@ const criaCardVitoria = (time, titulo) => {
   criaFogosArtificos(cardVitoria)
   fogosArtificios()
 }
+
+/**
+ * 
+ * @param {String} cardVitoria 
+ * @param {String} titulo 
+ */
 
 const criarTitulo = (cardVitoria, titulo = "CAMPEÃO DA TAÇA RIO") => {
   const criarTitulo = document.createElement("div");
@@ -277,19 +289,31 @@ const criaTrofeu = (cardVitoria) => {
   cardVitoria.appendChild(criaTrofeu)
 }
 
+/**
+ * Escreve o nome do time vencedor
+ * @param {String} cardVitoria 
+ * @param {String} time 
+ */
+
 const criaVencedor = (cardVitoria, time) => {
   const criaVencedor = document.createElement("div");
   criaVencedor.classList.add("criaVencedor")
   criaVencedor.innerText = `${time}`
   cardVitoria.appendChild(criaVencedor)
 }
-
+/**
+ * Cria a div dos fogos de artificios
+ * @param {String} cardVitoria 
+ */
 const criaFogosArtificos = (cardVitoria) => {
   const fogosArtificos = document.createElement("div");
   fogosArtificos.classList.add("fogos-artificios")
   cardVitoria.appendChild(fogosArtificos)
 }
-
+/**
+ * Cria botao de reiniciar e chama a funcao de evento de click
+ * @param {String} cardVitoria 
+ */
 const recomecar = (cardVitoria) => {
   let button = document.createElement('div')
 
