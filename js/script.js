@@ -6,7 +6,6 @@ const torcida = new Audio();
 torcida.src = "./assets/sons/publico_estadio.mp3";
 torcida.volume = 0.2;
 torcida.loop = true;
-torcida.play();
 
 // Som das jogadas;
 const chute = new Audio();
@@ -451,6 +450,7 @@ function jogar(cardInicial) {
   const botaoJogar = document.getElementById("botaoJogar");
   botaoJogar.addEventListener("click", function (evt) {
     cardInicial.style.display = "none";
+    torcida.play();
   })
 }
 
