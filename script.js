@@ -177,6 +177,8 @@ const vitoria = (discoVencedor) => {
   vitoriaDiagonal2(discoVencedor);
 };
 
+
+// Começo criação card inicial
 function cardInicialFunction () {
   const cardInicial = document.createElement("div");
   cardInicial.classList = "cardInicial";
@@ -194,6 +196,12 @@ function cardInicialFunction () {
   botaoRegras.addEventListener("click", () => {
     const chamarRegra = document.getElementById("regras");
       chamarRegra.style.display = "flex";
+  })
+  equipe(cardInicial)
+  const botaoEquipe = document.getElementById("botaoEquipe");
+  botaoEquipe.addEventListener("click", () => {
+    const chamarEquipe = document.getElementById("equipe");
+    chamarEquipe.style.display = "flex";
   })
 }
 
@@ -272,4 +280,40 @@ function regra(cardInicial) {
   })
 }
 
+function equipe(cardInicial) {
+  const equipe = document.createElement("div");
+  equipe.id = "equipe";
+  cardInicial.appendChild(equipe);
+  const equipeEscritas = document.createElement("div");
+  equipeEscritas.id = "equipeEscritas"
+  equipeEscritas.innerText = `Equipe por trás do projeto`
+  equipe.appendChild(equipeEscritas);
+  const botaoFechar = document.createElement("button");
+  botaoFechar.id = "botaoFechar";
+  botaoFechar.innerText = "Voltar";
+  criarCardEquipe(equipeEscritas)
+  equipeEscritas.appendChild(botaoFechar);
+  botaoFechar.addEventListener("click", function (evt){
+    const chamarRegra = document.getElementById("equipe");
+    chamarRegra.style.display = "none";
+  })
+  
+}
+
+function criarCardEquipe(equipeEscritas, nomeIntegrante, img, linkedin, github) {
+  const equipeContainer = document.createElement("div");
+  equipeContainer.id = "equipeContainer";
+  equipeEscritas.appendChild(equipeContainer);
+  const criarImg = document.createElement("img");
+  const criarLinkedin = document.createElement("a");
+  const criarGithub = document.createElement("a");
+  criarImg.classList = "imgClass";
+  criarImg.id = `img${nomeIntegrante}`;
+  criarLinkedin.classList = "linkedinClass";
+  criarLinkedin.id = `linkedin${nomeIntegrante}`;
+
+}
+
 cardInicialFunction();
+
+// Fim criação card inicial
