@@ -87,7 +87,7 @@ for (let i = colunas.length - 1; i >= 0; i--) {
     if (empate()) {
       vitoria(jogadorAtual);
     } else {
-      criaCardVitoria("EMPATE", "Taça Rio")
+      criaCardVitoria("EMPATE", "TAÇA RIO")
     }
     //colocar a cor do disco no local do tabuleiro
     let estilo = `.linha_${[i]} > .bloco_${[indice]}`;
@@ -264,7 +264,7 @@ function criaCardVitoria(time, titulo) {
   fogosArtificios()
 }
 
-function criarTitulo(cardVitoria, titulo = "Campeão da Taça Rio") {
+function criarTitulo(cardVitoria, titulo = "CAMPEÃO DA TAÇA RIO") {
   const criarTitulo = document.createElement("div");
   criarTitulo.classList.add("criarTitulo")
   criarTitulo.innerText = titulo
