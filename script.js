@@ -177,13 +177,99 @@ const vitoria = (discoVencedor) => {
   vitoriaDiagonal2(discoVencedor);
 };
 
-
-
-function criaCardVitoria(jogador) {
-  const cardVitoria = document.createElement("div");
-  cardVitoria.classList.add("cardVitoria")
-  cardVitoria.innerText = jogador
-  document.body.appendChild(cardVitoria)
+function cardInicialFunction () {
+  const cardInicial = document.createElement("div");
+  cardInicial.classList = "cardInicial";
+  document.body.appendChild(cardInicial);
+  const container = document.createElement("div");
+  container.id = "container";
+  cardInicial.appendChild(container);
+  criarTitulo(container);
+  criarTrofeu(container)
+  criarTimes(container);
+  criarBotoes(container)
+  jogar(cardInicial);
+  regra(cardInicial);
+  const botaoRegras = document.getElementById("botaoRegras");
+  botaoRegras.addEventListener("click", () => {
+    const chamarRegra = document.getElementById("regras");
+      chamarRegra.style.display = "flex";
+  })
 }
 
-// criaCardVitoria("Palmeiras tem Mundial")
+function criarTitulo(container) {
+  const criarTitulo = document.createElement("h1");
+  criarTitulo.innerText = "Taça Rio";
+  criarTitulo.id = "titulo";
+  container.appendChild(criarTitulo);
+}
+
+function criarTrofeu(container) {
+  const criarTroféu = document.createElement("img");
+  criarTroféu.id = "trofeu";
+  criarTroféu.src = "./trofeu.png"
+  container.appendChild(criarTroféu);
+}
+
+function criarTimes(container) {
+  const criarTimes = document.createElement("div");
+  criarTimes.classList = "criarTimes";
+  container.appendChild(criarTimes);
+  const criarTime1 = document.createElement("img");
+  criarTime1.id = "time1";
+  criarTime1.src = "./escudo-flamengo.png"
+  criarTimes.appendChild(criarTime1);
+  const criarVersus = document.createElement("img");
+  criarVersus.id = "versus";
+  criarVersus.src = "./versus.png"
+  criarTimes.appendChild(criarVersus);
+  const criarTime2 = document.createElement("img");
+  criarTime2.id = "time2";
+  criarTime2.src = "./escudo-fluminense.png"
+  criarTimes.appendChild(criarTime2);
+}
+
+function criarBotoes(container) {
+  const botaoJogar = document.createElement("button");
+  botaoJogar.id = "botaoJogar";
+  botaoJogar.classList = "botoesIniciais";
+  botaoJogar.innerText = "JOGAR";
+  const botaoRegras = document.createElement("button");
+  botaoRegras.id = "botaoRegras";
+  botaoRegras.classList = "botoesIniciais";
+  botaoRegras.innerText = "REGRA";
+  const botaoEquipe = document.createElement("button");
+  botaoEquipe.id = "botaoEquipe";
+  botaoEquipe.classList = "botoesIniciais";
+  botaoEquipe.innerText = "EQUIPE";
+  container.appendChild(botaoJogar);
+  container.appendChild(botaoRegras);
+  container.appendChild(botaoEquipe);
+}
+
+function jogar(cardInicial) {
+  const botaoJogar = document.getElementById("botaoJogar");
+  botaoJogar.addEventListener("click", function (evt) {
+    cardInicial.style.display = "none";
+  })
+}
+
+function regra(cardInicial) {
+  const regras = document.createElement("div");
+  regras.id = "regras";
+  cardInicial.appendChild(regras);
+  const regrasEscritas = document.createElement("div");
+  regrasEscritas.id = "regrasEscritas"
+  regrasEscritas.innerText = `Regras \b\b\b\b\b\b\b\b\b\b\b\b\b Cada jogador tenta colocar quatro de suas pedras em fila, dentro do quadro, seja na horizontal, vertical ou diagonal, bloqueando seu adversário para que ele não consiga fazer o mesmo.`
+  regras.appendChild(regrasEscritas);
+  const botaoFechar = document.createElement("button");
+  botaoFechar.id = "botaoFechar";
+  botaoFechar.innerText = "Voltar";
+  regrasEscritas.appendChild(botaoFechar);
+  botaoFechar.addEventListener("click", function (evt){
+    const chamarRegra = document.getElementById("regras");
+    chamarRegra.style.display = "none";
+  })
+}
+
+cardInicialFunction();
