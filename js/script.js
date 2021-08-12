@@ -3,7 +3,7 @@ const container = document.querySelector(".container");
 
 //sons da torcida durante o jogo.
 const torcida = new Audio();
-torcida.src = "/assets/sons/publico_estadio.mp3";
+torcida.src = "./assets/sons/publico_estadio.mp3";
 torcida.volume = 0.2;
 torcida.loop = true;
 torcida.play();
