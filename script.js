@@ -51,8 +51,6 @@ const jogador = document.createElement("div");
 jogador.classList.add("jogador");
 jogadores.appendChild(jogador);
 
-//Inicializando eventos Selecionando discos
-
 // variável de controle do clique.
 let player1 = "R";
 let player2 = "B";
@@ -60,8 +58,6 @@ let jogadorAtual = player1;
 
 // alternância de jogadores
 function alternaciaDeCor() {
-  // container.addEventListener("click", function (event) {
-  //   console.log("container");
   if (jogadorAtual === player1) {
     jogador.style.backgroundImage = "url('img/escudo-flamengo.png')";
     jogadorAtual = player2; //volta para true bloqueando o clique do jogador 2;
@@ -69,7 +65,6 @@ function alternaciaDeCor() {
     jogador.style.backgroundImage = "url('img/escudo-fluminense.png')";
     jogadorAtual = player1;
   }
-  // });
 }
 
 let arrTabuleiro = [
