@@ -209,6 +209,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 3rem;
+  background-position: bottom;
 }
 
 .criarTitulo,
@@ -260,7 +261,7 @@ body {
   height: 100%;
   background-image: url(../assets/img/estadio.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -420,8 +421,8 @@ body {
   }
   .glass {
     width: 750px;
-    height: 570px;
-    top: 8.1%;
+    height: 560px;
+    top: 6.5%;
   }
 
   .glass > h2 {

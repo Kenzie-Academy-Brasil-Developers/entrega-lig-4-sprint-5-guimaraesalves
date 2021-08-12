@@ -217,12 +217,22 @@ const vitoriaDiagonal2 = (disco) => {
   }
 };
 
+function typeWriter(elemento) {
+  const textoArray = elemento.innerHTML.split("");
+  elemento.innerHTML = "";
+  textoArray.forEach((letra, i) => {
+    setTimeout(() => (elemento.innerHTML += letra), 75 * i);
+  });
+}
+
 const btn = document.querySelector(".btn");
 
 btn.addEventListener("click", function () {
+  const titulo = document.querySelector("body > div.glass > p");
   const glass = document.querySelector(".glass");
   if (glass.style.display === "none") {
     glass.style.display = "flex";
+    typeWriter(titulo);
   } else {
     glass.style.display = "none";
   }
@@ -581,3 +591,6 @@ function criarCardEquipe(equipeEscritas, nomeIntegrante, linkedin, github) {
 cardInicialFunction();
 
 // Fim criação card inicial
+
+const titulo = document.querySelector("#container > div.criarTitulo");
+typeWriter(titulo);
