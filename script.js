@@ -1,4 +1,23 @@
 const container = document.querySelector(".container");
+// === SONS ===
+
+//sons da torcida durante o jogo.
+const torcida = new Audio();
+torcida.src = "./assets/sons/publico_estadio.mp3";
+torcida.volume = 0.5;
+torcida.loop = true;
+torcida.play();
+
+// Som das jogadas;
+const chute = new Audio();
+chute.src = "./assets/sons/chute.mp3";
+chute.volume = 0.5;
+
+//Som da vitória.
+const venceu = new Audio();
+venceu.src = "./assets/sons/VitoriaPublico.mp3";
+venceu.volume = 0.5;
+
 
 const tabuleiro = () => {
   for (let i = 0; i < 7; i++) {
@@ -53,7 +72,6 @@ let arrTabuleiro = [
 ];
 
 const colunas = document.querySelectorAll(".linha");
-
 for (let i = colunas.length - 1; i >= 0; i--) {
   colunas[i].addEventListener("click", function (evt) {
     let indice = arrTabuleiro[i].lastIndexOf("V");
@@ -70,12 +88,14 @@ for (let i = colunas.length - 1; i >= 0; i--) {
         cor.appendChild(peca);
         peca.style.backgroundImage = "url('img/escudo-fluminense.png')";
         alternaciaDeCor();
+        chute.play();
       } else {
         const peca = document.createElement("div");
         peca.classList.add("peca");
         cor.appendChild(peca);
         peca.style.backgroundImage = "url('img/escudo-flamengo.png')";
         alternaciaDeCor();
+        chute.play();
       }
     }
   });
@@ -117,6 +137,7 @@ const vitoriaVertical = (disco) => {
     for (let j = 0; j < arrTabuleiro[0].length - 3; j++) {
       if (condicaoVitoriaVertical(i, j, disco)) {
         console.log("Vitoria Vertical");
+        venceu.play();
       }
     }
   }
@@ -132,6 +153,7 @@ const vitoriaHorizontal = (disco) => {
     for (let j = 0; j < arrTabuleiro[0].length; j++) {
       if (condicaoVitoriaHorizontal(i, j, disco)) {
         console.log("Vitoria Horizontal");
+        venceu.play();
       }
     }
   }
@@ -147,6 +169,7 @@ const vitoriaDiagonal = (disco) => {
         arrTabuleiro[i][j] === disco
       ) {
         console.log("Vitoria Diagonal");
+        venceu.play();
       }
     }
   }
@@ -162,6 +185,7 @@ const vitoriaDiagonal2 = (disco) => {
         arrTabuleiro[i][j] === disco
       ) {
         console.log("Vitoria Diagonal");
+        venceu.play();
       }
     }
   }
@@ -246,4 +270,4 @@ function criaTrofeu(cardVitoria) {
 }
 
 
-criaCardVitoria("Palmeiras tem Mundial")
+// criaCardVitoria("Palmeiras tem Mundial")
