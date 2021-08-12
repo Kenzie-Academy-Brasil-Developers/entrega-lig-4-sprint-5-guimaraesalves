@@ -164,7 +164,7 @@ const vitoriaHorizontal = (disco) => {
   for (let i = 0; i < arrTabuleiro.length - 3; i++) {
     for (let j = 0; j < arrTabuleiro[0].length; j++) {
       if (condicaoVitoriaHorizontal(i, j, disco)) {
-        console.log("Vitoria Horizontal");
+        (disco === "R") ? criaCardVitoria("FLUMINENSE") : criaCardVitoria("FLAMENGO");
         venceu.play();
       }
     }
@@ -180,7 +180,7 @@ const vitoriaDiagonal = (disco) => {
         arrTabuleiro[i + 2][j + 2] === arrTabuleiro[i + 3][j + 3] &&
         arrTabuleiro[i][j] === disco
       ) {
-        console.log("Vitoria Diagonal");
+        (disco === "R") ? criaCardVitoria("FLUMINENSE") : criaCardVitoria("FLAMENGO");
         venceu.play();
       }
     }
@@ -196,31 +196,12 @@ const vitoriaDiagonal2 = (disco) => {
         arrTabuleiro[i - 2][j + 2] === arrTabuleiro[i - 3][j + 3] &&
         arrTabuleiro[i][j] === disco
       ) {
-        console.log("Vitoria Diagonal");
+        (disco === "R") ? criaCardVitoria("FLUMINENSE") : criaCardVitoria("FLAMENGO");
         venceu.play();
       }
     }
   }
 };
-
-/**
- * Função para checar a vitória
- * @param {String} discoVencedor
- */
-
-const vitoria = (discoVencedor) => {
-  vitoriaHorizontal(discoVencedor);
-  vitoriaVertical(discoVencedor);
-  vitoriaDiagonal(discoVencedor);
-  vitoriaDiagonal2(discoVencedor);
-};
-
-const criaCardVitoria = (jogador) => {
-  const cardVitoria = document.createElement("div");
-  cardVitoria.classList.add("cardVitoria");
-  cardVitoria.innerText = jogador;
-  document.body.appendChild(cardVitoria);
-}
 
 const btn = document.querySelector(".btn");
 
@@ -258,7 +239,20 @@ function cronometro() {
 
 cronometro();
 
-function criarTitulo(cardVitoria, titulo) {
+/**
+ * Função para checar a vitória
+ * @param {String} discoVencedor
+ */
+
+const vitoria = (discoVencedor) => {
+  vitoriaHorizontal(discoVencedor);
+  vitoriaVertical(discoVencedor);
+  vitoriaDiagonal(discoVencedor);
+  vitoriaDiagonal2(discoVencedor);
+};
+
+function criaCardVitoria(jogador) {
+  const cardVitoria = document.createElement("div");
   cardVitoria.classList.add("cardVitoria")
   document.body.appendChild(cardVitoria)
 
@@ -353,5 +347,3 @@ function fogosArtificios() {
 
   fireworks.start();
 }
-
-criaCardVitoria("Palmeiras tem Mundial")
