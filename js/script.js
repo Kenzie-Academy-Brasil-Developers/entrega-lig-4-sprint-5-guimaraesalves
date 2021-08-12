@@ -221,18 +221,16 @@ function typeWriter(elemento) {
   const textoArray = elemento.innerHTML.split("");
   elemento.innerHTML = "";
   textoArray.forEach((letra, i) => {
-    setTimeout(() => (elemento.innerHTML += letra), 75 * i);
+    setTimeout(() => (elemento.innerHTML += letra), 100 * i);
   });
 }
 
 const btn = document.querySelector(".btn");
 
 btn.addEventListener("click", function () {
-  const titulo = document.querySelector("body > div.glass > p");
   const glass = document.querySelector(".glass");
   if (glass.style.display === "none") {
     glass.style.display = "flex";
-    typeWriter(titulo);
   } else {
     glass.style.display = "none";
   }
