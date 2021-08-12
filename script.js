@@ -204,21 +204,22 @@ container.addEventListener("click", function () {
   jogador.classList.add("chutar");
   setTimeout(function queda() {
     jogador.classList.remove("chutar");
-  }, 2000);
+  }, 1000);
 });
 
-const minutos = 0;
-let tempo = minutos * 60;
-
-const cronometro = document.querySelector(".cronometro");
-
-setInterval(atualiza, 1000);
-
-function atualiza() {
-  const minutos = Math.floor(tempo / 60);
-  let segundos = tempo % 60;
-
-  segundos = segundos < 10 ? "0" + segundos : segundos;
-  cronometro.innerHTML = `${minutos}:${segundos}`;
-  tempo++;
+function cronometro() {
+  const timer = document.querySelector(".cronometro");
+  let time = new Date();
+  time.setHours(0, 0, 0, 0);
+  const atualizarTexto = function () {
+    time.setTime(time.getTime() + 1000);
+    timer.innerHTML = time.toLocaleTimeString("pt-BR", {
+      // hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+  };
+  return setInterval(atualizarTexto, 100);
 }
+
+cronometro();
