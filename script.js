@@ -280,18 +280,42 @@ function regra(cardInicial) {
   })
 }
 
+const nomesEquipes = [
+  ["Felipe Silvera"],
+  ["Laudemir do Nascimento"],
+  ["Mateus Alves"],
+  ["Victor Scherer"],
+];
+
+const linkedinEquipe = [
+  ["https://www.linkedin.com/in/felipe-larson-da-silveira/"],
+  ["https://www.linkedin.com/in/nlaudemir/"],
+  ["https://www.linkedin.com/in/mateus-guimar%C3%A3es-alves-b49008190/"],
+  ["https://www.linkedin.com/in/victorscherer/"],
+];
+
+const githubEquipe = [
+  ["https://github.com/felipelarson"],
+  ["https://github.com/LaudemirJunior"],
+  ["https://github.com/guimaraesalves"],
+  ["https://github.com/victorlscherer"],
+]
+
 function equipe(cardInicial) {
   const equipe = document.createElement("div");
   equipe.id = "equipe";
   cardInicial.appendChild(equipe);
   const equipeEscritas = document.createElement("div");
   equipeEscritas.id = "equipeEscritas"
-  equipeEscritas.innerText = `Equipe por trás do projeto`
+  equipeEscritas.innerText = `Equipe do projeto`
   equipe.appendChild(equipeEscritas);
   const botaoFechar = document.createElement("button");
   botaoFechar.id = "botaoFechar";
   botaoFechar.innerText = "Voltar";
-  criarCardEquipe(equipeEscritas)
+  criarCardEquipe(equipeEscritas, nomesEquipes[0],linkedinEquipe[0],githubEquipe[0]);
+  criarCardEquipe(equipeEscritas, nomesEquipes[1],linkedinEquipe[1],githubEquipe[1]);
+  criarCardEquipe(equipeEscritas, nomesEquipes[2],linkedinEquipe[2],githubEquipe[2]);
+  criarCardEquipe(equipeEscritas, nomesEquipes[3],linkedinEquipe[3],githubEquipe[3]);
   equipeEscritas.appendChild(botaoFechar);
   botaoFechar.addEventListener("click", function (evt){
     const chamarRegra = document.getElementById("equipe");
@@ -300,18 +324,38 @@ function equipe(cardInicial) {
   
 }
 
-function criarCardEquipe(equipeEscritas, nomeIntegrante, img, linkedin, github) {
+function criarCardEquipe(equipeEscritas, nomeIntegrante, linkedin, github) {
   const equipeContainer = document.createElement("div");
   equipeContainer.id = "equipeContainer";
   equipeEscritas.appendChild(equipeContainer);
-  const criarImg = document.createElement("img");
+  const criarNome = document.createElement("p");
   const criarLinkedin = document.createElement("a");
   const criarGithub = document.createElement("a");
-  criarImg.classList = "imgClass";
-  criarImg.id = `img${nomeIntegrante}`;
+  const criarDivImg = document.createElement("div");
+  const criarImgLinkedin = document.createElement("img");
+  const criarImgGithub = document.createElement("img");
+  
+  criarNome.classList = "nomeClass";
   criarLinkedin.classList = "linkedinClass";
-  criarLinkedin.id = `linkedin${nomeIntegrante}`;
+  criarGithub.classList = "githubClass";
+  
+  criarNome.innerText = `${nomeIntegrante}`;
+  
+  criarDivImg.id = "criarDivImg";
+  criarImgLinkedin.src = "./linkedin.png";
+  criarLinkedin.appendChild(criarImgLinkedin);
 
+  criarImgGithub.src = "./github.png";
+  criarGithub.appendChild(criarImgGithub);
+  
+  criarLinkedin.href = `${linkedin}`;
+  criarGithub.href = `${github}`;
+  
+  equipeContainer.appendChild(criarNome);
+  equipeContainer.appendChild(criarDivImg);
+  criarDivImg.appendChild(criarLinkedin);
+  criarDivImg.appendChild(criarGithub);
+  
 }
 
 cardInicialFunction();

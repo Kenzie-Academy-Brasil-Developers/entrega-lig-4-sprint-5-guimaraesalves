@@ -200,11 +200,25 @@ body {
   height: 500px;
   background-color: white;
   opacity: 0.8;
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 10px;
+}
+
+#criarDivImg {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#criarDivImg img{
+  width: 40px;
+  height: 40px;
 }
