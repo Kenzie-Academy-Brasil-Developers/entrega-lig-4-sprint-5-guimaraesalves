@@ -89,7 +89,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  /* background-color: rgba(0, 0, 0, 0.8); */
   background: no-repeat url(./img/background.jpg);
   background-size: cover;
   color: white;
@@ -202,9 +201,46 @@ body {
     font-size: 25px;
   }
 }
+.criarTitulo,
+.reiniciar,
+.criaVencedor {
+  color: rgb(229, 255, 0);
+  font-size: 40px;
+  font-weight: 700;
+  text-shadow: 2px 2px rgb(143, 41, 41);
+}
+
 .criaTrofeu {
-  background: no-repeat url(./img/trofeu.png);
+  background: no-repeat url(./img/trofeu.png) rgba(255, 255, 255, 0.25);
   background-size: contain;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 140px;
+  margin: 32px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.reiniciar {
+  margin: 32px 0;
+  background-color: #66a6ff;
+  background-image: url(./img/Futebol-Bola-de-Futebol.png);
+  background-size: cover;
+  border-radius: 39px;
+  font-size: 20px;
+  width: 81px;
+  height: 81px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.fogos-artificios {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
 }
