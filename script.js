@@ -184,7 +184,7 @@ const vitoria = (discoVencedor) => {
   vitoriaDiagonal2(discoVencedor);
 };
 
-function criaCardVitoria(jogador) {
+const criaCardVitoria = (jogador) => {
   const cardVitoria = document.createElement("div");
   cardVitoria.classList.add("cardVitoria");
   cardVitoria.innerText = jogador;
