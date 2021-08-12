@@ -71,12 +71,24 @@ let arrTabuleiro = [
   ["V", "V", "V", "V", "V", "V"],
 ];
 
+const empate = () => {
+  let ret = true
+  arrTabuleiro.map(elem => {
+    ret = elem.some(item => item === "V")
+  })
+  return ret
+}
+
 const colunas = document.querySelectorAll(".linha");
 for (let i = colunas.length - 1; i >= 0; i--) {
   colunas[i].addEventListener("click", function (evt) {
     let indice = arrTabuleiro[i].lastIndexOf("V");
     arrTabuleiro[i][indice] = jogadorAtual;
-    vitoria(jogadorAtual);
+    if (empate()) {
+      vitoria(jogadorAtual);
+    } else {
+      console.log("Empatou", arrTabuleiro)
+    }
     //colocar a cor do disco no local do tabuleiro
     let estilo = `.linha_${[i]} > .bloco_${[indice]}`;
     let cor = document.querySelector(estilo);
@@ -203,7 +215,7 @@ const vitoria = (discoVencedor) => {
   vitoriaDiagonal2(discoVencedor);
 };
 
-function criaCardVitoria(jogador) {
+const criaCardVitoria = (jogador) => {
   const cardVitoria = document.createElement("div");
   cardVitoria.classList.add("cardVitoria");
   cardVitoria.innerText = jogador;
