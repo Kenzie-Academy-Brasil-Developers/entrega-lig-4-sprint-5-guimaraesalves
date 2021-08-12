@@ -4,11 +4,54 @@
   box-sizing: border-box;
 }
 
+header {
+  min-width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.audio {
+  background-image: url(img/som.png);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-size: cover;
+}
+
 h1 {
-  padding: 20px;
   font-family: "Georama", sans-serif;
   font-size: 40px;
   color: #fff;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.glass {
+  width: 350px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: absolute;
+  top: 11%;
+  display: none;
+  flex-direction: column;
+}
+
+.glass > h2,
+.glass > h3,
+.glass > p,
+.glass > span {
+  margin: 25px;
+  text-align: center;
+  font-family: "Georama", sans-serif;
+  color: #0a105a;
 }
 
 body {
@@ -24,23 +67,6 @@ body {
   background-repeat: no-repeat;
 }
 
-.bloco {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  margin: 1px;
-  background-color: rgba(255, 255, 255, 0.514);
-  background-size: cover;
-  cursor: pointer;
-}
-
-.linha {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
 .container {
   display: flex;
   align-items: center;
@@ -53,29 +79,21 @@ body {
   box-shadow: 10px 10px 43px 0px rgba(255, 255, 255, 0.75);
 }
 
-.jogadores {
+.linha {
   display: flex;
-  margin: 50px;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.jogadores div {
-  width: 100px;
-  height: 100px;
-}
-
-.jogador {
-  background-image: url(img/escudo-fluminense.png);
+.bloco {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin: 1px;
+  background-color: rgba(255, 255, 255, 0.514);
   background-size: cover;
-}
-
-.chutar {
-  animation: mover 1.5s linear;
+  cursor: pointer;
 }
 
 .peca {
@@ -111,66 +129,6 @@ body {
   }
 }
 
-.glass {
-  width: 350px;
-  height: 500px;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  position: absolute;
-  top: 11%;
-  display: none;
-  flex-direction: column;
-}
-
-.glass > h2,
-.glass > h3,
-.glass > p,
-.glass > span {
-  margin: 25px;
-  text-align: center;
-  font-family: "Georama", sans-serif;
-  color: #0a105a;
-}
-
-.btn {
-  position: absolute;
-  top: 5%;
-  right: 5%;
-  cursor: pointer;
-}
-
-.cronometro {
-  color: #fff;
-  font-family: "Georama", sans-serif;
-  font-size: 25px;
-}
-
-@keyframes mover {
-  0% {
-    transform: translateY(-300px);
-    opacity: 0;
-  }
-  25% {
-    transform: translateY(-200px);
-    opacity: 0.2;
-  }
-  50% {
-    transform: translateY(-100px);
-    opacity: 0.3;
-  }
-  75% {
-    transform: translateY(25px);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-}
-
 @keyframes maior {
   0% {
     transform: scale(0.1);
@@ -183,21 +141,90 @@ body {
   }
 }
 
+.jogadores {
+  display: flex;
+  margin: 50px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.jogador {
+  background-image: url(img/escudo-fluminense.png);
+  background-size: cover;
+}
+
+.jogadores div {
+  width: 100px;
+  height: 100px;
+}
+
+.chutar {
+  animation: mover 1s linear;
+}
+
+@keyframes mover {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateY(-200px);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-100px);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateY(30px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.cronometro {
+  color: #fff;
+  font-family: "Georama", sans-serif;
+  font-size: 25px;
+}
+
+.cardVitoria {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: no-repeat url(./img/background.jpg);
+  background-size: cover;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
 @media (min-width: 800px) {
-  .bloco {
-    width: 80px;
-    height: 80px;
-    margin: 5px 10px 5px 10px;
+  header {
+    min-width: 700px;
+  }
+  .btn {
+    top: 3.5%;
+    right: 23%;
   }
   .glass {
     width: 750px;
     height: 570px;
     top: 8.1%;
   }
-  .btn {
-    top: 3.5%;
-    right: 23%;
-  }
+
   .glass > h2 {
     font-size: 40px;
   }
@@ -210,7 +237,13 @@ body {
   .glass > p {
     font-size: 25px;
   }
+  .bloco {
+    width: 80px;
+    height: 80px;
+    margin: 5px 10px 5px 10px;
+  }
 }
+
 .criarTitulo,
 .reiniciar,
 .criaVencedor {

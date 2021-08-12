@@ -4,7 +4,7 @@ const container = document.querySelector(".container");
 //sons da torcida durante o jogo.
 const torcida = new Audio();
 torcida.src = "./assets/sons/publico_estadio.mp3";
-torcida.volume = 0.5;
+torcida.volume = 0.2;
 torcida.loop = true;
 torcida.play();
 
@@ -18,6 +18,17 @@ const venceu = new Audio();
 venceu.src = "./assets/sons/VitoriaPublico.mp3";
 venceu.volume = 0.5;
 
+const audio = document.querySelector(".audio");
+
+audio.addEventListener("click", function () {
+  if (torcida.muted) {
+    torcida.muted = !torcida.muted;
+    audio.style.backgroundImage = "url(img/som.png)";
+  } else {
+    torcida.muted = !torcida.muted;
+    audio.style.backgroundImage = "url(img/mudo.png)";
+  }
+});
 
 const tabuleiro = () => {
   for (let i = 0; i < 7; i++) {
@@ -40,8 +51,6 @@ const jogador = document.createElement("div");
 jogador.classList.add("jogador");
 jogadores.appendChild(jogador);
 
-//Inicializando eventos Selecionando discos
-
 // variável de controle do clique.
 let player1 = "R";
 let player2 = "B";
@@ -49,8 +58,6 @@ let jogadorAtual = player1;
 
 // alternância de jogadores
 function alternaciaDeCor() {
-  // container.addEventListener("click", function (event) {
-  //   console.log("container");
   if (jogadorAtual === player1) {
     jogador.style.backgroundImage = "url('img/escudo-flamengo.png')";
     jogadorAtual = player2; //volta para true bloqueando o clique do jogador 2;
@@ -58,7 +65,6 @@ function alternaciaDeCor() {
     jogador.style.backgroundImage = "url('img/escudo-fluminense.png')";
     jogadorAtual = player1;
   }
-  // });
 }
 
 let arrTabuleiro = [
@@ -72,12 +78,12 @@ let arrTabuleiro = [
 ];
 
 const empate = () => {
-  let ret = true
-  arrTabuleiro.map(elem => {
-    ret = elem.some(item => item === "V")
-  })
-  return ret
-}
+  let ret = true;
+  arrTabuleiro.map((elem) => {
+    ret = elem.some((item) => item === "V");
+  });
+  return ret;
+};
 
 const colunas = document.querySelectorAll(".linha");
 for (let i = colunas.length - 1; i >= 0; i--) {
@@ -285,8 +291,8 @@ const criarTitulo = (cardVitoria, titulo = "CAMPEÃO DA TAÇA RIO") => {
 
 const criaTrofeu = (cardVitoria) => {
   const criaTrofeu = document.createElement("img");
-  criaTrofeu.classList.add("criaTrofeu")
-  cardVitoria.appendChild(criaTrofeu)
+  criaTrofeu.classList.add("criaTrofeu");
+  cardVitoria.appendChild(criaTrofeu);
 }
 
 /**
@@ -307,8 +313,8 @@ const criaVencedor = (cardVitoria, time) => {
  */
 const criaFogosArtificos = (cardVitoria) => {
   const fogosArtificos = document.createElement("div");
-  fogosArtificos.classList.add("fogos-artificios")
-  cardVitoria.appendChild(fogosArtificos)
+  fogosArtificos.classList.add("fogos-artificios");
+  cardVitoria.appendChild(fogosArtificos);
 }
 /**
  * Cria botao de reiniciar e chama a funcao de evento de click
@@ -317,18 +323,18 @@ const criaFogosArtificos = (cardVitoria) => {
 const recomecar = (cardVitoria) => {
   let button = document.createElement('div')
 
-  button.innerText = "Reiniciar"
-  button.classList.add('reiniciar')
+  button.innerText = "Reiniciar";
+  button.classList.add("reiniciar");
 
-  cardVitoria.appendChild(button)
+  cardVitoria.appendChild(button);
 
-  eventosClick()
+  eventosClick();
 }
 
 const eventosClick = () => {
   let button = document.querySelector('.reiniciar')
 
-  button.addEventListener('click', refreshPagina)
+  button.addEventListener("click", refreshPagina);
 }
 
 const refreshPagina = () => {
@@ -352,22 +358,22 @@ const fogosArtificios = () => {
     brightness: {
       min: 50,
       max: 80,
-      decay: { min: 0.015, max: 0.03 }
+      decay: { min: 0.015, max: 0.03 },
     },
     mouse: {
       click: false,
       move: false,
-      max: 3
+      max: 3,
     },
     boundaries: {
       x: 50,
       y: 50,
       width: fogos.clientWidth,
-      height: fogos.clientHeight
+      height: fogos.clientHeight,
     },
   });
 
-  fireworks.setSize({ height: 500, width: 450 })
+  fireworks.setSize({ height: 500, width: 450 });
 
   fireworks.start();
 }
