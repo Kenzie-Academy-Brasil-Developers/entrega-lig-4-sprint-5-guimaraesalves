@@ -148,7 +148,7 @@ const vitoriaVertical = (disco) => {
   for (let i = 0; i < arrTabuleiro.length; i++) {
     for (let j = 0; j < arrTabuleiro[0].length - 3; j++) {
       if (condicaoVitoriaVertical(i, j, disco)) {
-        console.log("Vitoria Vertical");
+        (disco === "R") ? criaCardVitoria("FLUMINENSE") : criaCardVitoria("FLAMENGO");
         venceu.play();
       }
     }
@@ -353,3 +353,5 @@ function fogosArtificios() {
 
   fireworks.start();
 }
+
+criaCardVitoria("Palmeiras tem Mundial")

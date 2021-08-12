@@ -89,7 +89,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: no-repeat url(./img/background.jpg);
+  background: no-repeat url(./img/background.jpg) center;
   background-size: cover;
   color: white;
   width: 100vw;
